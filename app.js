@@ -8,8 +8,8 @@ require("./config/mongodb");
 
 
 const indexRouter = require('./routes/index');
-const dashboardRouter = require('./routes/dashboard');
-const allBooksRouter = require('./routes/all-books');
+const dashboardRouter = require('./routes/dashboard/dashboard');
+const allBooksRouter = require('./routes/all-books/all-books');
 
 const app = express();
 
@@ -46,5 +46,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

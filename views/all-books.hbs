@@ -1,0 +1,16 @@
+<h1>All books</h1>
+
+<ul>
+  {{#each books}}
+    <li class="one-book">
+      <h3>{{title}}</h3>
+      <a href="/all-books/{{_id}}/details" >See details</a>
+      <form action="/all-books/{{_id}}/borrow" method="post">
+        <button type="submit"> Borrow this book</button></form>
+
+      <form action="/all-books/{{_id}}/add-wishlist" method="post">
+        <button type="submit"> Add to wishlist</button></form>
+
+    </li>
+  {{/each}}
+</ul>
