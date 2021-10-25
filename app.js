@@ -8,7 +8,7 @@ require("./config/mongodb");
 
 
 const indexRouter = require('./routes/index');
-const dashboardRouter = require('./routes/dashboard/dashboard');
+const dashboardRouter = require('./routes/dashboard/navigation');
 const allBooksRouter = require('./routes/all-books/all-books');
 
 const app = express();
