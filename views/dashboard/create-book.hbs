@@ -1,5 +1,5 @@
 <h2>Add a book to your personal library</h2>
-<form action="" method="post">
+<form action="/dashboard/{{id}}/create-book" method="post">
     <div>
         <label >Title</label>
         <input type="text" name="title">
@@ -14,18 +14,20 @@
         <label >Genre</label>
         <select type="text" name="genre">
             {{#each allGenres}}
-                <option value="">{{this}}</option>
+                <option value={{this}}>{{this}}</option>
             {{/each}}
         </select>
     </div>
 
     <div>
-        <label ></label>
-        <input type="text" name="">
+        <label >Image</label>
+        <input type="text" name="image">
     </div>
 
     <div>
-        <label ></label>
-        <input type="text" name="">
+        <label >Optional: what did you think about this book?</label>
+        <input type="text" name="comment">
     </div>
+
+    <button>OK</button>
 </form>
