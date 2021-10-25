@@ -13,7 +13,6 @@ const indexRouter = require('./routes/index');
 const allBooksRouter = require('./routes/all-books/all-books');
 const authRouter = require("./routes/auth");
 const navigationRouter = require ('./routes/dashboard/navigation');
-const borrowedRouter = require ('./routes/dashboard/borrowed');
 const libraryRouter = require ('./routes/dashboard/library');
 const  wishlistRouter = require ('./routes/dashboard/wishlist');
 
@@ -53,7 +52,6 @@ app.use('/', indexRouter);
 app.use('/all-books', allBooksRouter);
 app.use('/auth', authRouter)
 app.use('/dashboard',navigationRouter);
-app.use('/dashboard',borrowedRouter);
 app.use('/dashboard',libraryRouter);
 app.use('/dashboard',wishlistRouter);
 
