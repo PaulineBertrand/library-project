@@ -19,10 +19,10 @@ const userSchema = new Schema({
         type: String,
         require: true
     },
-    wishlist: {
+    wishlist: [{
         type: Schema.Types.ObjectId,
         ref: "books"
-    } 
+    }]
 })
 
 const userModel = mongoose.model("users", userSchema);

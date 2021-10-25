@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get("/all-books", (req, res, next) => {
   bookModel.find()
-  .then((books) => res.render("all-books.hbs", { books }))
+  .then((books) => res.render("all-books/all-books.hbs", { books }))
   .catch((error) => console.error(error))
 })
 
