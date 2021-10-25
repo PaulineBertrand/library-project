@@ -8,9 +8,12 @@ require("./config/mongodb");
 
 
 const indexRouter = require('./routes/index');
-const dashboardRouter = require('./routes/dashboard/navigation');
 const allBooksRouter = require('./routes/all-books/all-books');
-const navigationRouter = require ('./routes/dashboard/navigation')
+const navigationRouter = require ('./routes/dashboard/navigation');
+const borrowedRouter = require ('./routes/dashboard/borrowed');
+const libraryRouter = require ('./routes/dashboard/library');
+// const  wishlistRouter = require ('./routes/dashboard/wishlist');
+
 
 const app = express();
 
@@ -28,9 +31,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 // Here I am prefixing the routes in the two routes files all-books.js and dashboard.js but we can change that
-app.use('/dashboard', dashboardRouter);
 app.use('/all-books', allBooksRouter);
-app.use('/:id',navigationRouter);
+app.use('/dashboard',navigationRouter);
+app.use('/dashboard',borrowedRouter);
+app.use('/dashboard',libraryRouter);
+// app.use('/dashboard',wishlistRouter);
 
 
 // catch 404 and forward to error handler

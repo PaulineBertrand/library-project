@@ -45,7 +45,7 @@ router.get('/:id/edit-book', (req, res, next) => {
     .catch((err) => console.log('error while editing a book: ', err))
 });
 
-router.post()
+
 
 router.post('/:id/delete-book', (req, res, next) => {
     bookModel.findByIdAndDelete({_id: req.params.id})
