@@ -14,11 +14,10 @@ const allGenres = bookModel.schema.path('genre').enumValues
 // 4 - deleting a book (post only - there is nothing to render)
 
 // 1 - All books in the personal library
-router.get('/:id/my-library', (req, res, next) => {
-    console.log(req.params.id)
-    bookModel.find({owner: req.params.id})
+router.get('/my-library', (req, res, next) => {
+    console.log(req.session.currentUser._id)
+    bookModel.find({owner: req.session.currentUser._id})
     .then((books) => {
-        console.log("im in my-library with this data: ", books)
         res.render('dashboard/my-library', { books })
     })
     .catch((err) => console.log("error while displaying my-library: ", err))
@@ -26,14 +25,14 @@ router.get('/:id/my-library', (req, res, next) => {
 
 // 2 - Creating a book
 
-router.get('/:id/create-book', (req, res, next) => {
-    res.render('dashboard/create-book.hbs', { allGenres, id: req.params.id })
+router.get('/create-book', (req, res, next) => {
+    res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id })
 })
 
-router.post('/:id/create-book', (req, res, next) => {
-    bookModel.create({...req.body, owner: req.params.id, image: req.body.image || undefined})
+router.post('/create-book', (req, res, next) => {
+    bookModel.create({...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
     .then(() => {
-        res.redirect(`/dashboard/${req.params.id}/my-library`);
+        res.redirect(`/dashboard/${req.session.currentUser._id}/my-library`);
     })
     .catch((err) => console.log("error while creating a book: ", err))
 })
@@ -43,18 +42,23 @@ router.post('/:id/create-book', (req, res, next) => {
 router.get('/:id/edit-book', (req, res, next) => {
     bookModel.find({_id: req.params.id})
     .then((book) => {
-        res.render('dashboard/edit-book.hbs', { book })
+        res.render('dashboard/edit-book.hbs', { book, id: req.params.id })
     })
     .catch((err) => console.log('error while editing a book: ', err))
 });
 
+router.post('/:id/edit-book', (req, res, next) => {
+    bookModel.findByIdAndUpdate({_id: req.params.id}, {...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
+    .then(() => res.redirect(`dashboard/${req.session.currentUser}/my-library`))
+    .catch((err) => console.log('error while editing a book: ', err))
+})
 
-
+// 4 - Deleting a book
 router.post('/:id/delete-book', (req, res, next) => {
     bookModel.findByIdAndDelete({_id: req.params.id})
     .then((book) => {
-        res.redirect(`dashboard/${req.params.id}/my-library`);
-        console.log('Book ', book, ' was successfully deleted');
+        res.redirect(`dashboard/${req.session.currentUser._id}/my-library`);
+        console.log('Book ', book.title, ' was successfully deleted');
     })
     .catch((err) => {
         console.log("error while deleting a book: ", err)
