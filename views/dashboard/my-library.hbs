@@ -1,0 +1,20 @@
+<h1>My library</h1>
+<h2>All of my books</h2>
+
+{{#unless books.length}}
+<p>Your library is empty!</p>
+{{/unless}}
+
+<ul>
+{{#each books}}
+    <li class="one-book">
+        <img src="{{image}}" alt="book image">
+        <h4>{{title}}</h4>
+        <p>{{author}}</p>
+        <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
+        <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+    </li>
+{{/each}}
+</ul>
+
+<a href="/dashboard/add-book">Add a book</a>

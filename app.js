@@ -10,9 +10,16 @@ const session = require("express-session");
 
 
 const indexRouter = require('./routes/index');
-const dashboardRouter = require('./routes/dashboard/navigation');
 const allBooksRouter = require('./routes/all-books/all-books');
+<<<<<<< HEAD
 const authRouter = require("./routes/auth");
+=======
+const navigationRouter = require ('./routes/dashboard/navigation');
+const borrowedRouter = require ('./routes/dashboard/borrowed');
+const libraryRouter = require ('./routes/dashboard/library');
+const  wishlistRouter = require ('./routes/dashboard/wishlist');
+
+>>>>>>> 616d1355def0aae7568723482ea11aae629003f7
 
 const app = express();
 
@@ -46,9 +53,12 @@ app.use(require("./middlewares/exposeLoginStatus"));
 
 app.use('/', indexRouter);
 // Here I am prefixing the routes in the two routes files all-books.js and dashboard.js but we can change that
-app.use('/dashboard', dashboardRouter);
 app.use('/all-books', allBooksRouter);
 app.use('/auth', authRouter)
+app.use('/dashboard',navigationRouter);
+app.use('/dashboard',borrowedRouter);
+app.use('/dashboard',libraryRouter);
+app.use('/dashboard',wishlistRouter);
 
 
 // catch 404 and forward to error handler

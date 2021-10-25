@@ -1,0 +1,31 @@
+<h2>Add a book to your personal library</h2>
+<form action="" method="post">
+    <div>
+        <label >Title</label>
+        <input type="text" name="title">
+    </div>
+
+    <div>
+        <label >Author</label>
+        <input type="text" name="author">
+    </div>
+
+    <div>
+        <label >Genre</label>
+        <select type="text" name="genre">
+            {{#each allGenres}}
+                <option value="">{{this}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label ></label>
+        <input type="text" name="">
+    </div>
+
+    <div>
+        <label ></label>
+        <input type="text" name="">
+    </div>
+</form>
