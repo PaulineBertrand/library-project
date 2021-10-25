@@ -6,7 +6,6 @@ const bookModel = require("./../../models/bookModel")
 const userModel = require("./../../models/userModel")
 const borrowingModel = require("./../../models/borrowingModel")
 const allGenres = bookModel.schema.path('genre').enumValues
-console.log(allGenres)
 
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
@@ -15,9 +14,11 @@ console.log(allGenres)
 // 4 - deleting a book (post only - there is nothing to render)
 
 // 1 - All books in the personal library
-router.get('/dashboard/:id/my-library', (req, res, next) => {
+router.get('/:id/my-library', (req, res, next) => {
+    console.log(req.params.id)
     bookModel.find({owner: req.params.id})
     .then((books) => {
+        console.log("im in my-library with this data: ", books)
         res.render('dashboard/my-library', { books })
     })
     .catch((err) => console.log("error while displaying my-library: ", err))
@@ -26,16 +27,18 @@ router.get('/dashboard/:id/my-library', (req, res, next) => {
 // 2 - Creating a book
 
 router.get('/:id/create-book', (req, res, next) => {
-    res.render('dashboard/create-book.hbs', { allGenres })
+    res.render('dashboard/create-book.hbs', { allGenres, id: req.params.id })
 })
 
 router.post('/:id/create-book', (req, res, next) => {
-    bookModel.create(req.body)
+    bookModel.create({...req.body, owner: req.params.id, image: req.body.image || undefined})
     .then(() => {
-        res.redirect(`/${req.params.id}/my-library`);
+        res.redirect(`/dashboard/${req.params.id}/my-library`);
     })
     .catch((err) => console.log("error while creating a book: ", err))
 })
+
+// 3 - Editing a book
 
 router.get('/:id/edit-book', (req, res, next) => {
     bookModel.find({_id: req.params.id})

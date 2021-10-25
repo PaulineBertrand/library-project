@@ -1,0 +1,33 @@
+<h2>Got something wrong? Edit your book information</h2>
+<form action="" method="post">
+    <div>
+        <label >Title</label>
+        <input type="text" name="title">
+    </div>
+
+    <div>
+        <label >Author</label>
+        <input type="text" name="author">
+    </div>
+
+    <div>
+        <label >Genre</label>
+        <select type="text" name="genre">
+            {{#each allGenres}}
+                <option value={{this}}>{{this}}</option>
+            {{/each}}
+        </select>
+    </div>
+
+    <div>
+        <label >Image</label>
+        <input type="text" name="image">
+    </div>
+
+        <div>
+        <label >Optional: what did you think about this book?</label>
+        <input type="text" name="comment">
+    </div>
+
+    <button>OK</button>
+</form>
