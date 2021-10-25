@@ -1,0 +1,16 @@
+<h1>The books I am borrowing at the moment</h1>
+<h3>Happy reading and don't forget to give them back lol we're not gonna check though</h3>
+
+{{#unless borrowings.length}}
+<p>You are not borrowing any books!</p>
+{{/unless}}
+
+<ul>
+{{#each borrowings}}
+    <li class="one-book">
+        <img src="{{book.image}}" alt="book image">
+        <h4>{{book.title}}</h4>
+        <p>{{book.author}}</p>
+    </li>
+{{/each}}
+</ul>

@@ -14,7 +14,7 @@ const allBooksRouter = require('./routes/all-books/all-books');
 const authRouter = require("./routes/auth");
 const navigationRouter = require ('./routes/dashboard/navigation');
 const libraryRouter = require ('./routes/dashboard/library');
-const  wishlistRouter = require ('./routes/dashboard/wishlist');
+const wishlistRouter = require ('./routes/dashboard/wishlist');
 
 
 const app = express();

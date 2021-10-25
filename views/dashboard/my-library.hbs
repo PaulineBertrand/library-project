@@ -1,7 +1,7 @@
 <h1>My library</h1>
 <h2>All of my books</h2>
 
-{{#unless books.length}}
+{{#unless books}}
 <p>Your library is empty!</p>
 {{/unless}}
 
@@ -17,4 +17,4 @@
 {{/each}}
 </ul>
 
-<a href="/dashboard/add-book">Add a book</a>
+<a href="/dashboard/create-book">Add a book</a>
