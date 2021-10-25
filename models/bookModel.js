@@ -15,10 +15,10 @@ const bookSchema = new Schema({
     comment: String,
     image: {
         type: String,
-        default: ""
+        default: "https://bit.ly/3Chl6ko"
     },
     owner: {
-        type: Schema.Type.objectId,
+        type: Schema.Types.ObjectId,
         ref: "users"
     },
     status: {
@@ -26,11 +26,11 @@ const bookSchema = new Schema({
         enum: ["available", "borrowed"]
     }, 
     borrower: {
-        type: Schema.Type.objectId, // Je crois qu'on doit encore réfléchir à celui-là
+        type: Schema.Types.ObjectId, // Je crois qu'on doit encore réfléchir à celui-là
         ref: "users"
     }
 });
 
-const bookSchema = mongoose.model("books", bookSchema)
+const bookModel = mongoose.model("books", bookSchema)
 
-module.exports = bookSchema
+module.exports = bookModel

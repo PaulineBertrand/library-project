@@ -20,7 +20,7 @@ const userSchema = new Schema({
         require: true
     },
     wishlist: {
-        type: Schema.Type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "books"
     } 
 })
