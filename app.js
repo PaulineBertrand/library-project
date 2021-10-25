@@ -12,7 +12,7 @@ const allBooksRouter = require('./routes/all-books/all-books');
 const navigationRouter = require ('./routes/dashboard/navigation');
 const borrowedRouter = require ('./routes/dashboard/borrowed');
 const libraryRouter = require ('./routes/dashboard/library');
-// const  wishlistRouter = require ('./routes/dashboard/wishlist');
+const  wishlistRouter = require ('./routes/dashboard/wishlist');
 
 
 const app = express();
@@ -35,7 +35,7 @@ app.use('/all-books', allBooksRouter);
 app.use('/dashboard',navigationRouter);
 app.use('/dashboard',borrowedRouter);
 app.use('/dashboard',libraryRouter);
-// app.use('/dashboard',wishlistRouter);
+app.use('/dashboard',wishlistRouter);
 
 
 // catch 404 and forward to error handler
