@@ -1,17 +1,18 @@
 <h2>Got something wrong? Edit your book information</h2>
-<form action="" method="post">
+<form action="/dashboard/{{id}}/edit-book" method="post">
     <div>
         <label >Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" value={{title}}>
     </div>
 
     <div>
         <label >Author</label>
-        <input type="text" name="author">
+        <input type="text" name="author" value={{author}}>
     </div>
 
     <div>
         <label >Genre</label>
+        {{!-- here I'd like the genre to be selected --}}
         <select type="text" name="genre">
             {{#each allGenres}}
                 <option value={{this}}>{{this}}</option>
@@ -26,7 +27,7 @@
 
         <div>
         <label >Optional: what did you think about this book?</label>
-        <input type="text" name="comment">
+        <input type="text" name="comment" value={{comment}}>
     </div>
 
     <button>OK</button>
