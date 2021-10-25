@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www -e .js, .hbs"
+    "dev": "nodemon ./bin/www -e .js, .hbs",
+    "seed:book": "node ./bin/book.seed.js",
+    "seed:user": "node ./bin/user.seed.js",
+    "seed:borrowing": "node ./bin/borrowing.seed.js",
+    "seed:all": "npm run seed:user && npm run seed:book && npm run seed:borrowing"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

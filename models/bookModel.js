@@ -23,7 +23,8 @@ const bookSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ["available", "borrowed"]
+        enum: ["available", "borrowed"],
+        default: "available"
     }, 
     borrower: {
         type: Schema.Types.ObjectId, // Je crois qu'on doit encore réfléchir à celui-là
