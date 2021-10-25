@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 require("dotenv").config()
-console.log(process.env.MONGO_URI)
 
-mongoose.connect(process.env.MONGO_URI, {
+
+mongoose.connect("mongodb://localhost/library-project", {
   useNewUrlParser: true,
 //   useCreateIndex: true,
   useUnifiedTopology: true,

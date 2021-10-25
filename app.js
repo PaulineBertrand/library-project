@@ -10,6 +10,7 @@ require("./config/mongodb");
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard/navigation');
 const allBooksRouter = require('./routes/all-books/all-books');
+const navigationRouter = require ('./routes/dashboard/navigation')
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/', indexRouter);
 // Here I am prefixing the routes in the two routes files all-books.js and dashboard.js but we can change that
 app.use('/dashboard', dashboardRouter);
 app.use('/all-books', allBooksRouter);
+app.use('/:id',navigationRouter);
 
 
 // catch 404 and forward to error handler
