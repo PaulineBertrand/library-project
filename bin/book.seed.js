@@ -11,7 +11,7 @@ const books = [
     comment: "Nice read but sad lol",
     owner: ObjectId("61766c71854c201c48bfad3b"),
     status: "available",
-    borrower: ObjectId("61766c71854c201c48bfad39")
+   
     },
     {title: "",
     author: "",
@@ -20,7 +20,7 @@ const books = [
     image:,
     owner:,
     status:,
-    borrower:
+    
     },
     {title:,
     author:,
@@ -29,7 +29,7 @@ const books = [
     image:,
     owner:,
     status:,
-    borrower:
+    
     },
     {title:,
     author:,
@@ -38,6 +38,6 @@ const books = [
     image:,
     owner:,
     status:,
-    borrower:
+    
     }
 ]
