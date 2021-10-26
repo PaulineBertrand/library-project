@@ -15,14 +15,19 @@ router.get("/wishlist", async (req, res, next) => {
               path: 'owner'
           }
       });
-
-    console.log("user ?", user);
-
     res.render("dashboard/wishlist", { user });
 
   } catch (err) {
     next(err);
   }
 });
+
+router.post("/:id/remove-wishlist", (req, res, next) => {
+    userModel.findByIdAndUpdate(req.session.currentUser._id, {$pull:{wishlist: req.params.id}})
+    .then (() => {
+        res.redirect("/dashboard/wishlist")
+    })
+    .catch((error) => console.error(error))
+})
 
 module.exports = router;

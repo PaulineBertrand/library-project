@@ -6,5 +6,8 @@
     <li>genre : {{this.genre}}</li>
     <li>owner : {{this.owner.name}}</li>
     <br>
+    <form action="/dashboard/{{_id}}/remove-wishlist" data-id="{{_id}}" method="post" class="remove-wishlist">
+        <button type="submit"> Remove from wishlist</button></form>
   {{/each}}
+   
 </ul>
