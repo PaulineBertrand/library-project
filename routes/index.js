@@ -16,7 +16,7 @@ router.get("/all-books", (req, res, next) => {
     userModel.findById(req.session.currentUser?._id).populate("wishlist")
   ]
 Promise.all(databaseRequests)
-    .then((responses) => {res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1] })})
+    .then((responses) => {res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], wishlist: true})})
     .catch((error) => console.error(error));
 });
 
@@ -28,7 +28,7 @@ router.get("/all-books/available", (req, res, next) => {
     userModel.findById(req.session.currentUser?._id).populate("wishlist")
   ]
   Promise.all(databaseRequests)
-  .then((responses) => res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1] }))
+  .then((responses) => res.render("all-books/all-books-available.hbs", { books: responses[0], user: responses[1], wishlist: true }))
     .catch((error) => console.error(error));
 })
 
