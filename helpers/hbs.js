@@ -3,38 +3,30 @@ const bookModel = require("./../models/bookModel");
 const userModel = require("./../models/userModel");
 const borrowingModel = require("./../models/borrowingModel");
 
-hbs.registerHelper("isInWishlist", async function (userId, options) {
-  console.log(options.fn);
-  console.log("this", this._id); // l'id du book
-  const user = await userModel.findById(userId).populate("wishlist");
-  const found = [1, 2, 3].find((el) => {
-    // console.log("-------->");
-    // const a = el._id.toString();
-    // const b = this._id.toString();
-    return el === userId;
-  });
-  console.log(found);
-  if (found) {
-    return    `<form action="/all-books/${this._id}/add-wishlist"  method="post" class="add-wishlist">
-    <button type="submit"> Add to wishlist</button>
-  </form>`
-  } 
-  // if (wishlist[0]._id === bookId) return true;
-  // return false;
+hbs.registerHelper("isInWishlist", function (user, options) {
+  // console.log("user", user);
+  // console.log("this", this._id.toString()); // l'id du book
+  // console.log("hello", user.wishlist[0])
+  for (let i = 0; i < user.wishlist.length; i++) {
+    if (user.wishlist[i]._id.toString() === this._id.toString())
+    return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" class="remove-wishlist"><button type="submit"> Remove from wishlist</button></form>`
+    // return true
+  }
+ 
+  return '<form action="/all-books/this._id.toString()/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> Add to wishlist</button></form>';
 });
 
 
-hbs.registerHelper("isInWishlist", function (bookId){
-    const wishlist = userModel.findById(req.session.currentUser._id).populate("wishlist");
-    if (wishlist[0]._id === bookId) return true;
-    return false;
-})
-
 hbs.registerHelper("isBorrowed", function (bookId) {
-    bookModel.findById(bookId)
+  bookModel
+    .findById(bookId)
     .then((book) => {
-        if (book.status === 'borrowed') {return true};
-        return false;
+      if (book.status === "borrowed") {
+        return true;
+      }
+      return false;
     })
-    .catch((err) => console.log("error while finding borrowed books in all books: ", err))
-})
+    .catch((err) =>
+      console.log("error while finding borrowed books in all books: ", err)
+    );
+});

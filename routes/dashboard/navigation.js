@@ -29,7 +29,6 @@ router.get('/', (req, res, next) => {
 });
 
 
-
 router.get('/lended', function(req, res, next){
 
   userModel.findById(req.session.currentUser.id)
