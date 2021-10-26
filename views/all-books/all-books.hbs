@@ -5,6 +5,10 @@
   <a href="/all-books/available">All the available books</a>
 </nav>
 
+{{#unless canStillBorrow}}
+<p class="book-limit-message">You are at your book limit. You cannot borrow more books at the moment.</p>
+{{/unless}}
+
 <ul>
   {{#each books}}
     <li class="one-book {{#ifEquals status 'borrowed' 'grey-card'}}{{/ifEquals}}"> 
