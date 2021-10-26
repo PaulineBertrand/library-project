@@ -16,10 +16,11 @@ const borrowingModel = require ("./../../models/borrowingModel")
 
 function renderAddToWishlistButton() {
     const wishlist = userModel.findById(req.session.currentUser._id).populate("wishlist");
-    // Iteration 1: set the visibility of `<section class="green-pepper">`
     document.querySelectorAll('.add-wishlist').forEach((addButton) => {
         if ( !isInWishList(addButton.id)) {
             addButton.style.visibility = 'visible';
+        } else {
+            addButton.style.visibility = 'hidden';
         }
       
     });
@@ -27,10 +28,11 @@ function renderAddToWishlistButton() {
 
   function renderRemoveFromWishlistButton() {
     const wishlist = userModel.findById(req.session.currentUser._id).populate("wishlist");
-    // Iteration 1: set the visibility of `<section class="green-pepper">`
     document.querySelectorAll('.remove-wishlist').forEach((removeButton) => {
         if ( isInWishList(removeButton.id)) {
             removeButton.style.visibility = 'visible';
+        } else {
+            removeButton.style.visibility = 'hidden';
         }
       
     });
