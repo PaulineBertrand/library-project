@@ -10,3 +10,12 @@ hbs.registerHelper("isInWishlist", function (bookId){
     if (wishlist[0]._id === bookId) return true;
     return false;
 })
+
+hbs.registerHelper("isBorrowed", function (bookId) {
+    bookModel.findById(bookId)
+    .then((book) => {
+        if (book.status === 'borrowed') {return true};
+        return false;
+    })
+    .catch((err) => console.log("error while finding borrowed books in all books: ", err))
+})

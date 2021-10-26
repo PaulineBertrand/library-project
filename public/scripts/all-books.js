@@ -2,14 +2,13 @@
       
 //     });
 //   }
-console.log("im in public/scripts")
 const borrowButtons = document.querySelectorAll(".borrow-button")
 borrowButtons.forEach((borrowButton) => {
     borrowButton.addEventListener('click', () => {
-        console.log("yo")
         borrowButton.classList.remove("active")
     })
 })
+
 const bookModel = require("./../../models/bookModel");
 const borrowingModel = require ("./../../models/borrowingModel")
 

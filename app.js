@@ -40,14 +40,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const dev_mode = true;
 
-// if (dev_mode === true) {
-//   app.use(function exposeTestUser(req, res, next) {
-//     req.session.currentUser = {
-//       email: "mar@ie.po",
-//     };
-//     next();
-//   });
-// }
+if (dev_mode === true) {
+  app.use(function exposeTestUser(req, res, next) {
+    req.session.currentUser = {
+      email: "mar@ie.po",
+    };
+    next();
+  });
+}
 
 // FLASH MESSAGES
 // enable "flash messaging" system
