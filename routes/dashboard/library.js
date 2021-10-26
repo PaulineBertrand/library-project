@@ -12,13 +12,13 @@ const allGenres = bookModel.schema.path('genre').enumValues
 // 2 - creating a book (get to render the form, post to create the book in the db)
 // 3 - editing a book (get and post, like in 2-)
 // 4 - deleting a book (post only - there is nothing to render)
+// 5 - all the books borrowed by the user (get only cause they can't change them)
 
 // 1 - All books in the personal library
 router.get('/my-library', (req, res, next) => {
-    console.log(req.session.currentUser._id)
     bookModel.find({owner: req.session.currentUser._id})
     .then((books) => {
-        res.render('dashboard/my-library', { books })
+        res.render('dashboard/my-library.hbs', { books })
     })
     .catch((err) => console.log("error while displaying my-library: ", err))
 });
@@ -32,7 +32,7 @@ router.get('/create-book', (req, res, next) => {
 router.post('/create-book', (req, res, next) => {
     bookModel.create({...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
     .then(() => {
-        res.redirect(`/dashboard/${req.session.currentUser._id}/my-library`);
+        res.redirect(`/dashboard/my-library`);
     })
     .catch((err) => console.log("error while creating a book: ", err))
 })
@@ -54,15 +54,23 @@ router.post('/:id/edit-book', (req, res, next) => {
 })
 
 // 4 - Deleting a book
-router.post('/:id/delete-book', (req, res, next) => {
+router.get('/:id/delete-book', (req, res, next) => {
     bookModel.findByIdAndDelete({_id: req.params.id})
     .then((book) => {
-        res.redirect(`dashboard/${req.session.currentUser._id}/my-library`);
+        res.redirect('/dashboard/my-library');
         console.log('Book ', book.title, ' was successfully deleted');
     })
     .catch((err) => {
         console.log("error while deleting a book: ", err)
     })
+})
+
+// 5 - Displaying borrowed books
+
+router.get('/my-borrowed-books', (req, res, next) => {
+    borrowingModel.find({borrower: req.session.currentUser._id}).populate("book")
+    .then((borrowings) => res.render('dashboard/borrowed.hbs', { borrowings }))
+    .catch((err) => console.log('error while displaying borrowed books: ', err))
 })
 
 module.exports = router;

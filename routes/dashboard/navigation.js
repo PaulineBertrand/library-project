@@ -8,13 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('dashboard/navigation');
 });
 
-router.get('/my-library', function(req, res, next){
 
-  userModel.findById(req.session.currentUser.id)
-  
-  .then((user) => res.render("dashboard/my-library", { user }))
-  .catch(next);
-})
 
 router.get('/lended', function(req, res, next){
 
