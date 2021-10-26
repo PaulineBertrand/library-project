@@ -31,7 +31,7 @@ app.use(
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 // added this setup for partials
-hbs.registerPartials(__dirname + "/views/partials");
+hbs.registerPartials(path.join(__dirname , "views" , "partials"));
 
 app.use(logger("dev"));
 app.use(express.json());
