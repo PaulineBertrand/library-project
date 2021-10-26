@@ -19,7 +19,6 @@ router.get("/all-books", (req, res, next) => {
 Promise.all(databaseRequests)
     .then((responses) => {
       const canStillBorrow = responses[2].length <= 5;
-      if (!canStillBorrow) {req.flash('warning', 'You are at your book limit. You cannot borrow more books at the moment.')}
       res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true })
     })
     .catch((error) => console.error(error));
