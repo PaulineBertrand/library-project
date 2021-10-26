@@ -38,17 +38,5 @@ router.get('/lended', protectPrivateRoute, function(req, res, next){
   .catch(next);
 })
 
-router.get('/borrowed', protectPrivateRoute, function(req, res, next){
-
-  userModel.findById(req.session.currentUser.id)
-  
-  .then((user) => res.render("dashboard/borrowed", { user }))
-  .catch(next);
-})
-
-
-
-
-
 
 module.exports = router;
