@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-const dev_mode = true;
+const dev_mode = false;
 
 if (dev_mode === true) {
   app.use(function exposeTestUser(req, res, next) {
