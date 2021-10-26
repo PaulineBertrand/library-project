@@ -21,8 +21,6 @@
 <form action="/all-books/{{_id}}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i> </button></form>
         {{else}}
         {{#isInWishlist ../user }}
-              {{!-- <form action="/all-books/{{_id}}/remove-wishlist" method="post" class="remove-wishlist">
-        <button type="submit"> Remove from wishlist</button></form> --}}
         {{/isInWishlist}}
   {{/unless}}
       

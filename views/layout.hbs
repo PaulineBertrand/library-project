@@ -25,8 +25,10 @@
          <a href="/all-books">all books</a>
         <span>|</span>
         <a href="/dashboard">my dashboard</a>
+        {{#if wishlist}}
         <span>|</span>
         <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i> My wishlist</a>
+        {{/if}}
         <span>|</span>
         
         <a href="/auth/signout">signout</a>
