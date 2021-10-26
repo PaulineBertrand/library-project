@@ -6,6 +6,7 @@ const flash = require("connect-flash");
 const logger = require("morgan");
 const hbs = require("hbs");
 require("./config/mongodb");
+require("./helpers/hbs"); // custom functions adding features to hbs templates
 const session = require("express-session");
 
 const indexRouter = require("./routes/index");
@@ -40,20 +41,24 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const dev_mode = true;
 
-// if (dev_mode === true) {
-//   app.use(function exposeTestUser(req, res, next) {
-//     req.session.currentUser = {
-//       email: "mar@ie.po",
-//     };
-//     next();
-//   });
-// }
+if (dev_mode === true) {
+  app.use(function exposeTestUser(req, res, next) {
+    console.log("inna middleware");
+    req.session.currentUser = {
+      _id: "6177ba37a6d77182f51c0b31",
+      email: "mar@ie.po",
+    };
+    next();
+  });
+}
 
 // FLASH MESSAGES
 // enable "flash messaging" system
 // flash relies on the express-session mechanism
 app.use(flash());
 app.use(require("./middlewares/exposeLoginStatus"));
+app.use(require("./middlewares/exposeFlashMessage"));
+
 
 app.use("/", indexRouter);
 // Here I am prefixing the routes in the two routes files all-books.js and dashboard.js but we can change that
@@ -87,7 +92,6 @@ app.use(function myCookieLogger(req, res, next) {
   next();
 });
 
-app.use(require("./middlewares/exposeFlashMessage"));
-app.use(require("./middlewares/exposeLoginStatus"));
+
 
 module.exports = app;

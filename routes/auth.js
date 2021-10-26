@@ -23,7 +23,7 @@ router.get("/signout", (req, res) => {
   });
 });
 
-router.post("/signin", async (req, res, next) => {
+router.post("/signin",  async (req, res, next) => {
   // DO something
   //   res.render("auth/signin.hbs");
   try {
