@@ -1,7 +1,7 @@
 const hbs = require("hbs");
-const bookModel = require("./../../models/bookModel");
-const userModel = require("./../../models/userModel")
-const borrowingModel = require ("./../../models/borrowingModel")
+const bookModel = require("../models/bookModel");
+const userModel = require("../models/userModel")
+const borrowingModel = require ("../models/borrowingModel")
 
 
 
