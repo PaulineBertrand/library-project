@@ -1,14 +1,10 @@
 <h1>Wishlist</1h>
 
 <ul>
-  {{#each wishlist}}
-    <li>Title : {{title}}</li>
-    <li>genre : {{propellers}}</li>
-    <li>owner : {{owner}}</li>
-    <a href="/{{_id}}/my-wishlist">edit page</a>
-    <form method="post" action="/{{_id}}/remove-wishlist" class="form">
-      <button class="button">delete</button>
-    </form>
-    <br />
+  {{#each user.wishlist}}
+    <li>Title : {{this.title}}</li>
+    <li>genre : {{this.genre}}</li>
+    <li>owner : {{this.owner.name}}</li>
+    <br>
   {{/each}}
 </ul>
