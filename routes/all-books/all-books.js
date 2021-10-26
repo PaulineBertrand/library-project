@@ -14,7 +14,8 @@ router.get("/:id/details", (req, res, next) => {
 
 
 router.get("/available", (req, res, next) => {
-    bookModel.find({status: "available"})
+    console.log(req.session.currentUser._id)
+    bookModel.find({ $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser._id,} }] })
     .then((books) => res.render("all-books/all-books-available.hbs", { books }))
     .catch((error) => console.error(error))
   })
@@ -48,3 +49,7 @@ router.post("/:id/remove-wishlist", (req, res, next) => {
 })
 
 module.exports = router;
+
+// { cuisine : { $ne: "Hamburgers" } }
+// { $and: [ { <expression1> }, { <expression2> }, ...  { <expressionN> } ] }
+// { $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser._id,} }] }
