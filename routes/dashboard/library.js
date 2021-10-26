@@ -73,4 +73,14 @@ router.get('/my-borrowed-books', (req, res, next) => {
     .catch((err) => console.log('error while displaying borrowed books: ', err))
 })
 
+
+router.get("/lended-library", (req, res, next) => {
+    console.log(req.session.currentUser._id)
+    bookModel.find({ $and: [ {status: "borrowed"}, { owner : { $eq: req.session.currentUser._id,} }] })
+    .then((books) => res.render("dashboard/lended-library", { books }))
+    .catch((error) => console.error(error))
+  })
+
+
+
 module.exports = router;
