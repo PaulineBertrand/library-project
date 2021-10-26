@@ -32,10 +32,10 @@ const books = [
     comment: "another classic !",
    
     },
-    {title: "Matilda",
+    {title: "Sacrées sorcières",
     author: "Roald Dahl",
     genre: "Children Literature",
-    comment: "another classic !",
+    comment: "a must read !",
     },
     {title: "Alcools",
     author: "Guillaume Apollinaire",

@@ -1,24 +1,28 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bookModel = require("./../../models/bookModel")
-const userModel = require("./../../models/userModel")
-const borrowingModel = require("./../../models/borrowingModel")
+const bookModel = require("./../../models/bookModel");
+const userModel = require("./../../models/userModel");
+const borrowingModel = require("./../../models/borrowingModel");
+const { path } = require("../../app");
 
-router.get('/:id/my-wishlist', (req, res, next) => {
-    
-    userModel.findById(req.params.id).populate("wishlist")
-      .then((wishlist) => res.render("dashboard/wishlist.hbs", { wishlist }))
-      .catch(next);    
-  });
+router.get("/wishlist", async (req, res, next) => {
+  try {
+    const user = await userModel
+      .findById(req.session.currentUser._id)
+      .populate({
+          path: "wishlist",
+          populate: {
+              path: 'owner'
+          }
+      });
 
-  router.post("/:id/remove-wishlist", (req, res, next) => {
-    userModel.findByIdAndUpdate(req.session.currentUser._id, {$pull:{wishlist: req.params.id}})
-    .then ((book) => {
-        res.redirect("/all-books/")
-    })
-    .catch((error) => console.error(error))
-})
+    console.log("user ?", user);
 
+    res.render("dashboard/wishlist", { user });
 
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;

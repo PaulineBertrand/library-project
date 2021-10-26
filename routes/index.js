@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get("/all-books", (req, res, next) => {
-  bookModel.find()
+  bookModel.find( { owner : { $ne: req.session.currentUser._id,} })
   .then((books) => res.render("all-books/all-books.hbs", { books }))
   .catch((error) => console.error(error))
 })

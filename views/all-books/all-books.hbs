@@ -14,10 +14,10 @@
       <form action="/all-books/{{_id}}/borrow" method="post">
         <button type="submit" class="borrow-button active"> Borrow this book</button></form>
 
-      <form action="/all-books/{{_id}}/add-wishlist" method="post" class="add-wishlist">
+      <form action="/all-books/{{_id}}/add-wishlist" data-id="{{_id}}" method="post" class="add-wishlist">
         <button type="submit"> Add to wishlist</button></form>
 
-      <form action="/all-books/{{_id}}/remove-wishlist" method="post" class="remove-wishlist">
+      <form action="/all-books/{{_id}}/remove-wishlist" data-id="{{_id}}" method="post" class="remove-wishlist">
         <button type="submit"> Remove from wishlist</button></form>
     </li>
   {{/each}}
