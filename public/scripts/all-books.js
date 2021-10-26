@@ -1,8 +1,16 @@
+//         addButton.style.visibility = 'visible';
+      
+//     });
+//   }
+const borrowButtons = document.querySelectorAll(".borrow-button")
+borrowButtons.forEach((borrowButton) => {
+    borrowButton.addEventListener('click', () => {
+        borrowButton.classList.remove("active")
+    })
+})
+
 const bookModel = require("./../../models/bookModel");
-const userModel = require("./../../models/userModel")
 const borrowingModel = require ("./../../models/borrowingModel")
-
-
 
 
 function renderAddToWishlistButton() {

@@ -46,7 +46,6 @@ if (dev_mode === true) {
     console.log("inna middleware");
     req.session.currentUser = {
       _id: "6177ba37a6d77182f51c0b31",
-      email: "mar@ie.po",
     };
     next();
   });

@@ -1,0 +1,15 @@
+<h1>The books I have lended</h1>
+
+{{#unless lended.length}}
+<p>You have not lended any book!</p>
+{{/unless}}
+
+<ul>
+{{#each lended}}
+    <li class="one-book">
+        <img src="{{book.image}}" alt="book image">
+        <h4>{{book.title}}</h4>
+        <p>{{book.author}}</p>
+    </li>
+{{/each}}
+</ul>

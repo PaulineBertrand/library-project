@@ -12,7 +12,7 @@ const allGenres = bookModel.schema.path('genre').enumValues
 // 2 - creating a book (get to render the form, post to create the book in the db)
 // 3 - editing a book (get and post, like in 2-)
 // 4 - deleting a book (post only - there is nothing to render)
-// 5 - all the books borrowed by the user (get only cause they can't change them)
+// 5 - all the books borrowed by the user (get only, cause they can't change them)
 
 // 1 - All books in the personal library
 router.get('/my-library', (req, res, next) => {

@@ -26,13 +26,6 @@ router.get('/borrowed', function(req, res, next){
   .catch(next);
 })
 
-// router.get('/wishlist', function(req, res, next){
-
-//   userModel.findById(req.session.currentUser.id)
-  
-//   .then((user) => res.render("dashboard/wishlist", { user }))
-//   .catch(next);
-// })
 
 
 
