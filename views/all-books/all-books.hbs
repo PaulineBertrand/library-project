@@ -11,9 +11,11 @@
       <img src="{{image}}" alt="image-photo" width="200px">
       <h3>{{title}}</h3>
       <a href="/all-books/{{_id}}/details" >See details</a>
+
+      {{#if ../canStillBorrow}}
       <form action="/all-books/{{_id}}/borrow" method="post">
         <button type="submit" class="borrow-button active"> Borrow this book</button></form>
-
+      {{/if}}
 
 {{#unless ../currentUser}}
 <form action="/all-books/{{_id}}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i> </button></form>

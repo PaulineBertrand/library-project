@@ -13,10 +13,14 @@ router.get("/", function (req, res, next) {
 router.get("/all-books", (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ owner: { $ne: req.session.currentUser?._id } }),
-    userModel.findById(req.session.currentUser?._id).populate("wishlist")
+    userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+    borrowingModel.find({borrower: req.session.currentUser._id})
   ]
 Promise.all(databaseRequests)
-    .then((responses) => {res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1] })})
+    .then((responses) => {
+      const canStillBorrow = responses[2].length <= 5;
+      res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], canStillBorrow })
+    })
     .catch((error) => console.error(error));
 });
 
