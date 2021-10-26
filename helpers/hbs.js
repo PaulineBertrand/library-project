@@ -17,16 +17,6 @@ hbs.registerHelper("isInWishlist", function (user, options) {
 });
 
 
-hbs.registerHelper("isBorrowed", function (bookId) {
-  bookModel
-    .findById(bookId)
-    .then((book) => {
-      if (book.status === "borrowed") {
-        return true;
-      }
-      return false;
-    })
-    .catch((err) =>
-      console.log("error while finding borrowed books in all books: ", err)
-    );
+hbs.registerHelper("ifEquals", function (x, y, thingToDisplay) {
+  if (x === y) return thingToDisplay
 });
