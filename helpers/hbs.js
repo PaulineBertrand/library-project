@@ -4,7 +4,7 @@ const userModel = require("./../models/userModel");
 const borrowingModel = require("./../models/borrowingModel");
 
 hbs.registerHelper("isInWishlist", function (user, options) {
-  // console.log("user", user);
+  console.log("user", user);
   // console.log("this", this._id.toString()); // l'id du book
   // console.log("hello", user.wishlist[0])
   for (let i = 0; i < user.wishlist.length; i++) {

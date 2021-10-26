@@ -13,15 +13,22 @@
       <a href="/">home</a>
       <span>|</span>
       {{#unless currentUser}}
-        <a href="/auth/signup">signup</a>
+       <a href="/all-books">all books</a>
         <span>|</span>
-        <a href="/auth/signin">signin</a>
+        {{!-- <a href="/auth/signup">signup or login</a>
+        <span>|</span> --}}
+        <a href="/auth/signin">signup or login</a>
         <span>|</span>
-      {{else}}
-        <a href="/all-books">all books</a>
+      
+       
+        {{else}}
+         <a href="/all-books">all books</a>
         <span>|</span>
         <a href="/dashboard">my dashboard</a>
         <span>|</span>
+        <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i> My wishlist</a>
+        <span>|</span>
+        
         <a href="/auth/signout">signout</a>
       {{/unless}}
     </nav>

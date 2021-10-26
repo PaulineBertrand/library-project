@@ -5,7 +5,8 @@ const router = express.Router();
 const bookModel = require("./../../models/bookModel")
 const userModel = require("./../../models/userModel")
 const borrowingModel = require("./../../models/borrowingModel")
-const allGenres = bookModel.schema.path('genre').enumValues
+const allGenres = bookModel.schema.path('genre').enumValues;
+const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
@@ -15,7 +16,7 @@ const allGenres = bookModel.schema.path('genre').enumValues
 // 5 - all the books borrowed by the user (get only, cause they can't change them)
 
 // 1 - All books in the personal library
-router.get('/my-library', (req, res, next) => {
+router.get('/my-library', protectPrivateRoute, (req, res, next) => {
     bookModel.find({owner: req.session.currentUser._id})
     .then((books) => {
         res.render('dashboard/my-library.hbs', { books })
@@ -25,11 +26,11 @@ router.get('/my-library', (req, res, next) => {
 
 // 2 - Creating a book
 
-router.get('/create-book', (req, res, next) => {
+router.get('/create-book', protectPrivateRoute, (req, res, next) => {
     res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id })
 })
 
-router.post('/create-book', (req, res, next) => {
+router.post('/create-book', protectPrivateRoute, (req, res, next) => {
     bookModel.create({...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
     .then(() => {
         res.redirect(`/dashboard/my-library`);
@@ -39,7 +40,7 @@ router.post('/create-book', (req, res, next) => {
 
 // 3 - Editing a book
 
-router.get('/:id/edit-book', (req, res, next) => {
+router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
     bookModel.find({_id: req.params.id})
     .then((book) => {
         res.render('dashboard/edit-book.hbs', { book, id: req.params.id })
@@ -47,14 +48,14 @@ router.get('/:id/edit-book', (req, res, next) => {
     .catch((err) => console.log('error while editing a book: ', err))
 });
 
-router.post('/:id/edit-book', (req, res, next) => {
+router.post('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
     bookModel.findByIdAndUpdate({_id: req.params.id}, {...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
     .then(() => res.redirect(`dashboard/${req.session.currentUser}/my-library`))
     .catch((err) => console.log('error while editing a book: ', err))
 })
 
 // 4 - Deleting a book
-router.get('/:id/delete-book', (req, res, next) => {
+router.get('/:id/delete-book', protectPrivateRoute, (req, res, next) => {
     bookModel.findByIdAndDelete({_id: req.params.id})
     .then((book) => {
         res.redirect('/dashboard/my-library');
@@ -67,7 +68,7 @@ router.get('/:id/delete-book', (req, res, next) => {
 
 // 5 - Displaying borrowed books
 
-router.get('/my-borrowed-books', (req, res, next) => {
+router.get('/my-borrowed-books',  protectPrivateRoute, (req, res, next) => {
     borrowingModel.find({borrower: req.session.currentUser._id}).populate("book")
     .then((borrowings) => {
         res.render('dashboard/borrowed.hbs', { borrowings })
@@ -76,7 +77,7 @@ router.get('/my-borrowed-books', (req, res, next) => {
 })
 
 
-router.get("/lended-library", (req, res, next) => {
+router.get("/lended-library", protectPrivateRoute, (req, res, next) => {
     console.log(req.session.currentUser._id)
     bookModel.find({ $and: [ {status: "borrowed"}, { owner : { $eq: req.session.currentUser._id,} }] })
     .then((books) => res.render("dashboard/lended-library", { books }))

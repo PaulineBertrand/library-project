@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("./../models/userModel");
 const bcrypt = require("bcrypt"); // lib to encrypt data
-
+const protectPrivateRoute = require("./../middlewares/protectPrivateRoute")
 
 
 let msg = null;
