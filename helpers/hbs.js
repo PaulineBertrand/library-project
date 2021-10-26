@@ -9,11 +9,11 @@ hbs.registerHelper("isInWishlist", function (user, options) {
   // console.log("hello", user.wishlist[0])
   for (let i = 0; i < user.wishlist.length; i++) {
     if (user.wishlist[i]._id.toString() === this._id.toString())
-    return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" class="remove-wishlist"><button type="submit"> Remove from wishlist</button></form>`
-    // return true
+    return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" class="remove-wishlist"><button type="submit"> <i class="fas fa-heart"></i>
+    </button></form>`
   }
  
-  return '<form action="/all-books/this._id.toString()/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> Add to wishlist</button></form>';
+  return `<form action="/all-books/${this._id.toString()}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i></button></form>`;
 });
 
 
