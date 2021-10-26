@@ -69,7 +69,9 @@ router.get('/:id/delete-book', (req, res, next) => {
 
 router.get('/my-borrowed-books', (req, res, next) => {
     borrowingModel.find({borrower: req.session.currentUser._id}).populate("book")
-    .then((borrowings) => res.render('dashboard/borrowed.hbs', { borrowings }))
+    .then((borrowings) => {
+        res.render('dashboard/borrowed.hbs', { borrowings })
+    })
     .catch((err) => console.log('error while displaying borrowed books: ', err))
 })
 
