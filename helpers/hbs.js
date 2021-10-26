@@ -4,7 +4,7 @@ const userModel = require("./../models/userModel");
 const borrowingModel = require("./../models/borrowingModel");
 
 hbs.registerHelper("isInWishlist", function (user, options) {
-  // console.log("user", user);
+  console.log("user", user);
   // console.log("this", this._id.toString()); // l'id du book
   // console.log("hello", user.wishlist[0])
   for (let i = 0; i < user.wishlist.length; i++) {
@@ -17,16 +17,6 @@ hbs.registerHelper("isInWishlist", function (user, options) {
 });
 
 
-hbs.registerHelper("isBorrowed", function (bookId) {
-  bookModel
-    .findById(bookId)
-    .then((book) => {
-      if (book.status === "borrowed") {
-        return true;
-      }
-      return false;
-    })
-    .catch((err) =>
-      console.log("error while finding borrowed books in all books: ", err)
-    );
+hbs.registerHelper("ifEquals", function (x, y, thingToDisplay) {
+  if (x === y) return thingToDisplay
 });
