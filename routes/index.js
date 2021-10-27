@@ -26,7 +26,6 @@ Promise.all(databaseRequests)
 
 
 router.get("/all-books/available", (req, res, next) => {
-  // console.log(req.session.currentUser._id)
   const databaseRequests = [
     bookModel.find({ $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser?._id} }] }),
     userModel.findById(req.session.currentUser?._id).populate("wishlist")

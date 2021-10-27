@@ -4,9 +4,6 @@ const userModel = require("./../models/userModel");
 const borrowingModel = require("./../models/borrowingModel");
 
 hbs.registerHelper("isInWishlist", function (user, options) {
-  console.log("user", user);
-  // console.log("this", this._id.toString()); // l'id du book
-  // console.log("hello", user.wishlist[0])
   for (let i = 0; i < user.wishlist.length; i++) {
     if (user.wishlist[i]._id.toString() === this._id.toString())
     return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" class="remove-wishlist"><button type="submit"> <i class="fas fa-heart"></i>

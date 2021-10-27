@@ -14,8 +14,6 @@ router.get("/:id/details",protectPrivateRoute, (req, res, next) => {
 })
 
 
-
-  
 // route qui change le statut d'un livre à "borrowed"
 router.post("/:id/borrow",protectPrivateRoute, (req, res, next) => {
 bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "borrowed"}, { new: true })

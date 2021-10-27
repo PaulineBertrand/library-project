@@ -41,7 +41,7 @@ router.post('/create-book', protectPrivateRoute, (req, res, next) => {
 // 3 - Editing a book
 
 router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
-    bookModel.find({_id: req.params.id})
+    bookModel.findById(req.params.id)
     .then((book) => {
         res.render('dashboard/edit-book.hbs', { book, id: req.params.id })
     })
@@ -78,7 +78,6 @@ router.get('/my-borrowed-books',  protectPrivateRoute, (req, res, next) => {
 
 
 router.get("/lended-library", protectPrivateRoute, (req, res, next) => {
-    console.log(req.session.currentUser._id)
     bookModel.find({ $and: [ {status: "borrowed"}, { owner : { $eq: req.session.currentUser._id,} }] })
     .then((books) => res.render("dashboard/lended-library", { books }))
     .catch((error) => console.error(error))

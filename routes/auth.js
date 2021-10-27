@@ -17,15 +17,12 @@ router.get("/signup", (req, res, next) => {
 
 router.get("/signout", (req, res) => {
   req.session.destroy(function (err) {
-    // cannot access session here anymore
-    // console.log(req.session.currentUser);
     res.redirect("/auth/signin");
   });
 });
 
 router.post("/signin",  async (req, res, next) => {
-  // DO something
-  //   res.render("auth/signin.hbs");
+ 
   try {
     const { email, password } = req.body;
     const foundUser = await User.findOne({ email: email });
@@ -36,7 +33,6 @@ router.post("/signin",  async (req, res, next) => {
       req.flash("error", "Invalid credentials");
       res.redirect("/auth/signin");
     } else {
-      // https://www.youtube.com/watch?v=O6cmuiTBZVs
       const isSamePassword = bcrypt.compareSync(password, foundUser.password);
       if (!isSamePassword) {
         // Display an error message telling the user that either the password
@@ -48,13 +44,7 @@ router.post("/signin",  async (req, res, next) => {
         // Authenticate the user...
         const userObject = foundUser.toObject(); // needed to convert mongoose object to classic js object
         delete userObject.password; // remove password before saving user in session
-        // console.log(req.session, "before defining current user");
         req.session.currentUser = userObject;
-        // above: Store the user in the session (data server side + a cookie is sent client side)
-
-        // https://www.youtube.com/watch?v=nvaE_HCMimQ
-        // https://www.youtube.com/watch?v=OFRjZtYs3wY
-
         req.flash("success", "Successfully logged in...");
         res.redirect(`/dashboard`);
       }
@@ -74,9 +64,6 @@ router.post("/signup", async (req, res, next) => {
       res.redirect("/auth/signup");
     } else {
       const hashedPassword = bcrypt.hashSync(newUser.password, 10);
-      // console.log("---------");
-      // console.log(newUser.password, hashedPassword);
-      // console.log("---------");
       newUser.password = hashedPassword;
       await User.create(newUser);
       req.flash("success", "Congrats ! You are now registered !");

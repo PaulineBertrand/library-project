@@ -7,7 +7,6 @@ const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 
 // getting all the user numbers (how many books in total etc), displaying them in the dashboard
 router.get('/', protectPrivateRoute, (req, res, next) => {
-  console.log(req.session.currentUser._id)
   const dbRequests = [
     bookModel.find({owner: req.session.currentUser._id}),
     bookModel.find({$and : [{owner: req.session.currentUser._id}, {status: 'borrowed'}]}),

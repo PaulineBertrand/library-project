@@ -43,7 +43,7 @@ const dev_mode = false;
 
 if (dev_mode === true) {
   app.use(function exposeTestUser(req, res, next) {
-    console.log("inna middleware");
+
     req.session.currentUser = {
       _id: "6177ba37a6d77182f51c0b31",
     };
