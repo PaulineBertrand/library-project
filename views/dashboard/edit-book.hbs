@@ -12,10 +12,9 @@
 
     <div>
         <label >Genre</label>
-        {{!-- here I'd like the genre to be selected --}}
         <select type="text" name="genre">
             {{#each allGenres}}
-                <option value={{this}}>{{this}}</option>
+                <option {{#ifEquals this ../book.genre 'selected'}}{{/ifEquals}} value="{{this}}">{{this}}</option>
             {{/each}}
         </select>
     </div>
