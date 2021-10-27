@@ -20,7 +20,7 @@
 <ul id="all-books">
   {{#each books}}
     <li class="one-book {{#ifEquals status 'borrowed' 'grey-card'}}{{/ifEquals}}"> 
-      <img src="{{image}}" alt="image-photo" width="200px">
+      <img src="{{image}}" alt="image-photo" width="200px" title= "comment from the author : {{comment}}">
       <h3>{{title}}</h3>
       <a href="/all-books/{{_id}}/details" >See details</a>
 
