@@ -33,6 +33,7 @@ app.set("view engine", "hbs");
 // added this setup for partials
 hbs.registerPartials(path.join(__dirname , "views" , "partials"));
 
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -57,7 +58,6 @@ if (dev_mode === true) {
 app.use(flash());
 app.use(require("./middlewares/exposeLoginStatus"));
 app.use(require("./middlewares/exposeFlashMessage"));
-
 
 
 app.use("/", indexRouter);
@@ -92,6 +92,7 @@ app.use(function myCookieLogger(req, res, next) {
   console.log(req.cookies);
   next();
 });
+
 
 
 

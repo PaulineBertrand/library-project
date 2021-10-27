@@ -9,6 +9,7 @@ const allGenres = bookModel.schema.path('genre').enumValues;
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 const exposeToolBar = require("./../../middlewares/exposeToolBar")
 const fileUploader = require("./../../config/cloudinary.config");
+const findCoverImage = require("../../middlewares/bookCovers.js");
 
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
@@ -32,14 +33,14 @@ router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
     res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id })
 })
 
-router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), (req, res, next) => {
+router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), findCoverImage, (req, res, next) => {
 
     const newBook= { ...req.body };
+    console.log(res.locals.coverURL)
     if (req.file) {
-        console.log("im there lol")
         newBook.image = req.file.path;
     } else {
-        newBook.image = undefined;
+        newBook.image = res.locals.coverURL
     }
     newBook.owner = req.session.currentUser._id 
 
