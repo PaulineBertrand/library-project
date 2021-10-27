@@ -12,27 +12,25 @@
   <body>
     <nav id="nav-main">
       <a href="/">home</a>
-      <span>|</span>
+
       <a href="/about">How does it work ?</a>
-        <span>|</span>
+
       {{#unless currentUser}}
-       <a href="/all-books">all books</a>
-        <span>|</span>
-        <a href="/auth/signin">signup or login</a>
-        <span>|</span>
-      
-       
-        {{else}}
-         <a href="/all-books">all books</a>
-        <span>|</span>
+        <a href="/all-books">all books</a>
+
+        <a id="sigin" href="/auth/signin">signup or login</a>
+
+      {{else}}
+        <a href="/all-books">all books</a>
+
         <a href="/dashboard">my dashboard</a>
         {{#if wishlist}}
-        <span>|</span>
-        <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i> My wishlist</a>
+
+          <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i>
+            My wishlist</a>
         {{/if}}
-        <span>|</span>
-        
-        <a href="/auth/signout">signout</a>
+
+        <a  href="/auth/signout">signout</a>
       {{/unless}}
     </nav>
 

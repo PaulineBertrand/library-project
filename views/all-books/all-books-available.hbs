@@ -1,33 +1,8 @@
-
 <h1>All the books available from your community</h1>
-<nav>
-  <a href="/all-books"> All the books</a>
-  <a href="/all-books/available">All the available books</a>
-</nav>
 
 <form action="/all-books/available/filter" method="get">
  <input type="text" placeholder="search by title or author" name="search">
         <button type="submit"> filter</button></form>
-<ul>
-  {{#each books}}
-    <li class="one-book">
-      <img src="{{image}}" alt="image-photo" width="200px">
-      <h3>{{title}}</h3>
-      <a href="/all-books/{{_id}}/details" >See details</a>
-      <form action="/all-books/{{_id}}/borrow" method="post">
-        <button type="submit" class="borrow-button active"> Borrow this book</button></form>
 
+{{> displayBooks }}
 
-{{#unless ../currentUser}}
-<form action="/all-books/{{_id}}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i> </button></form>
-    
-        {{else}}
-        {{#isInWishlist ../user }}
-              {{!-- <form action="/all-books/{{_id}}/remove-wishlist" method="post" class="remove-wishlist">
-        <button type="submit"> Remove from wishlist</button></form> --}}
-        {{/isInWishlist}}
-  {{/unless}}
-      
-    </li>
-  {{/each}}
-</ul>
