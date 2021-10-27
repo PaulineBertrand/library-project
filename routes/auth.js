@@ -7,6 +7,7 @@ const protectPrivateRoute = require("./../middlewares/protectPrivateRoute")
 
 let msg = null;
 
+
 router.get("/signin", (req, res, next) => {
   res.render("auth/signin");
 });
@@ -22,7 +23,6 @@ router.get("/signout", (req, res) => {
 });
 
 router.post("/signin",  async (req, res, next) => {
- 
   try {
     const { email, password } = req.body;
     const foundUser = await User.findOne({ email: email });

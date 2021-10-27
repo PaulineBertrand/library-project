@@ -7,9 +7,15 @@ const protectPrivateRoute = require("./../middlewares/protectPrivateRoute")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("home/index", { title: "Express" });
 });
 
+// get the "how does it function" page
+router.get("/about", function (req, res, next) {
+  res.render("home/about");
+});
+
+// get the "all-books" page
 router.get("/all-books", (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ owner: { $ne: req.session.currentUser?._id } }),
@@ -24,7 +30,7 @@ Promise.all(databaseRequests)
     .catch((error) => console.error(error));
 });
 
-
+// get the "all-books" page, but filter only on the available
 router.get("/all-books/available", (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser?._id} }] }),
