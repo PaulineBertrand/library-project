@@ -22,9 +22,9 @@ hbs.registerHelper("ifEquals", function (x, y, thingToDisplay) {
 // depending on the number of books of the library, return the good text
 hbs.registerHelper("isEqual", function (nbAllBooks, nbLendedBooks) {
   if (nbAllBooks === 1) 
-  return `<p>You have ${nbAllBooks} book, among which ${nbLendedBooks} currently lended.</p>`;
+  return `<p>You have ${nbAllBooks} book, among which ${nbLendedBooks} currently lent.</p>`;
   if (nbAllBooks > 1)
-  return `<p>You have ${nbAllBooks} books, among which ${nbLendedBooks} currently lended.</p>`
+  return `<p>You have ${nbAllBooks} books, among which ${nbLendedBooks} currently lent.</p>`
 });
 
 // depending on the number of books in the wishlist, return the good text
