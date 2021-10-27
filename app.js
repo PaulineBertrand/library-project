@@ -59,6 +59,7 @@ app.use(require("./middlewares/exposeLoginStatus"));
 app.use(require("./middlewares/exposeFlashMessage"));
 
 
+
 app.use("/", indexRouter);
 // Here I am prefixing the routes in the two routes files all-books.js and dashboard.js but we can change that
 app.use("/all-books", allBooksRouter);
@@ -86,6 +87,7 @@ app.use(function (err, req, res, next) {
 // CUSTOM MIDDLEWARES
 // matrix cookie scene : https://www.youtube.com/watch?v=nvaE_HCMimQ
 // the web is a mess : https://www.youtube.com/watch?v=OFRjZtYs3wY
+app.use(require("./middlewares/exposeToolBar"));
 app.use(function myCookieLogger(req, res, next) {
   console.log(req.cookies);
   next();

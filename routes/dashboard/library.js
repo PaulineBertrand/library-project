@@ -7,6 +7,7 @@ const userModel = require("./../../models/userModel")
 const borrowingModel = require("./../../models/borrowingModel")
 const allGenres = bookModel.schema.path('genre').enumValues;
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
+const exposeToolBar = require("./../../middlewares/exposeToolBar")
 
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
@@ -16,10 +17,10 @@ const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 // 5 - all the books borrowed by the user (get only, cause they can't change them)
 
 // 1 - All books in the personal library
-router.get('/my-library', protectPrivateRoute, (req, res, next) => {
+router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.find({owner: req.session.currentUser._id})
     .then((books) => {
-        res.render('dashboard/my-library.hbs', { books })
+        res.render('dashboard/my-library.hbs', { books, stats: res.locals.userNumbers })
     })
     .catch((err) => console.log("error while displaying my-library: ", err))
 });
@@ -68,10 +69,10 @@ router.get('/:id/delete-book', protectPrivateRoute, (req, res, next) => {
 
 // 5 - Displaying borrowed books
 
-router.get('/my-borrowed-books',  protectPrivateRoute, (req, res, next) => {
+router.get('/my-borrowed-books',  protectPrivateRoute, exposeToolBar, (req, res, next) => {
     borrowingModel.find({borrower: req.session.currentUser._id}).populate("book")
     .then((borrowings) => {
-        res.render('dashboard/borrowed.hbs', { borrowings })
+        res.render('dashboard/borrowed.hbs', { borrowings, stats: res.locals.userNumbers })
     })
     .catch((err) => console.log('error while displaying borrowed books: ', err))
 })

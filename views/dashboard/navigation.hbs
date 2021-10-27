@@ -2,32 +2,35 @@
 
 <div>
 <h3><a href="/dashboard/my-library">My library : </a></h3>
-{{#unless nbAllBooks}}
+{{#unless stats.nbAllBooks}}
 <p>You don't have any books in your library.</p>
 {{/unless}}
 
-{{#isEqual nbAllBooks nbLendedBooks}}
+{{!-- {{stats.nbLendedBooks}} --}}
+{{#isEqual stats.nbAllBooks stats.nbLendedBooks}}
 {{/isEqual}}
 </div>
 
 <div>
    <h3><a href="/dashboard/my-borrowed-books">Books that i have :</a></h3> 
 
-       {{#unless nbBorrowedBooks}}
+
+       {{#unless stats.nbBorrowedBooks}}
 <p>Currently, you don't borrow any books.</p>
 {{/unless}}
 
-{{#isEqualBorrowed nbBorrowedBooks}}
+{{#isEqualBorrowed stats.nbBorrowedBooks}}
 {{/isEqualBorrowed}}
 
 </div>
 
 <div>
    <h3><a href="/dashboard/wishlist">My wishlist:</a></h3> 
-   {{#unless nbWishlistBooks}}
+   
+   {{#unless stats.nbWishlistBooks}}
 <p>You don't have any books in your wishlist.</p>
 {{/unless}}
 
-{{#isEqualWishlist nbWishlistBooks}}
+{{#isEqualWishlist stats.nbWishlistBooks}}
 {{/isEqualWishlist}}
 </div>
