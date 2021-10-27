@@ -14,7 +14,7 @@ router.get("/all-books", (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ owner: { $ne: req.session.currentUser?._id } }),
     userModel.findById(req.session.currentUser?._id).populate("wishlist"),
-    borrowingModel.find({borrower: req.session.currentUser._id})
+    borrowingModel.find({borrower: req.session.currentUser?._id})
   ]
 Promise.all(databaseRequests)
     .then((responses) => {

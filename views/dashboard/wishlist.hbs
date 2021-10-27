@@ -12,3 +12,11 @@
   {{/each}}
    
 </ul>
+
+
+{{#unless user.wishlist.length}}
+<p>You don't have any books in your wishlist !</p>
+<a href="/all-books">Add a book to my wishlist</a>
+{{else}}
+<a href="/all-books">Add another book to my wishlist</a>
+{{/unless}}

@@ -1,10 +1,8 @@
 <h1>The books I am borrowing at the moment</h1>
 {{> toolbar }}
-<h3>Happy reading and don't forget to give them back lol we're not gonna check though</h3>
 
-{{#unless borrowings.length}}
-<p>You are not borrowing any books!</p>
-{{/unless}}
+
+
 
 <ul>
 {{#each borrowings}}
@@ -15,3 +13,11 @@
     </li>
 {{/each}}
 </ul>
+
+
+{{#unless borrowings.length}}
+<p>You are not borrowing any books!</p>
+<a href="/all-books">Borrow a book</a>
+{{else}}
+<a href="/all-books">Borrow another book</a>
+{{/unless}}
