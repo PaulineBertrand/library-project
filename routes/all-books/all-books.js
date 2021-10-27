@@ -43,7 +43,3 @@ router.post("/:id/remove-wishlist", protectPrivateRoute,(req, res, next) => {
 })
 
 module.exports = router;
-
-// { cuisine : { $ne: "Hamburgers" } }
-// { $and: [ { <expression1> }, { <expression2> }, ...  { <expressionN> } ] }
-// { $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser._id,} }] }
