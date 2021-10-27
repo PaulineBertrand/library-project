@@ -34,10 +34,13 @@ Promise.all(databaseRequests)
 router.get("/all-books/available", (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser?._id} }] }),
-    userModel.findById(req.session.currentUser?._id).populate("wishlist")
+    userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+    borrowingModel.find({borrower: req.session.currentUser?._id})
   ]
   Promise.all(databaseRequests)
-  .then((responses) => res.render("all-books/all-books-available.hbs", { books: responses[0], user: responses[1], wishlist: true }))
+  .then((responses) => {
+    const canStillBorrow = responses[2].length <= 5;
+    res.render("all-books/all-books-available.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true })})
     .catch((error) => console.error(error));
 })
 

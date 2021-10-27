@@ -1,43 +1,8 @@
 <h1>All the books from your community with your filter "{{filter}}"</h1>
 
-<nav>
-  <a href="/all-books"> All the books</a>
-  <a href="/all-books/available">All the available books</a>
-</nav>
 
  <form action="/all-books/filter" method="get">
  <input type="text" placeholder="search by title or author" name="search">
         <button type="submit"> filter</button></form>
 
-{{#unless canStillBorrow}}
-<p class="book-limit-message">You are at your book limit. You cannot borrow more books at the moment.</p>
-{{/unless}}
-
- {{#unless books}}
-      No results for your research !
-      {{/unless}}
-      
-<ul id="all-books">
-  {{#each books}}
-    <li class="one-book {{#ifEquals status 'borrowed' 'grey-card'}}{{/ifEquals}}"> 
-      <img src="{{image}}" alt="image-photo" width="200px" title= "comment from the author : {{comment}}">
-      <h3>{{title}}</h3>
-      <a href="/all-books/{{_id}}/details" >See details</a>
-
-      {{#if ../canStillBorrow}}
-      <form action="/all-books/{{_id}}/borrow" method="post">
-        <button type="submit" class="borrow-button active"> Borrow this book</button></form>
-      {{/if}}
-
-     
-
-{{#unless ../currentUser}}
-<form action="/all-books/{{_id}}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i> </button></form>
-        {{else}}
-        {{#isInWishlist ../user }}
-        {{/isInWishlist}}
-  {{/unless}}
-      
-    </li>
-  {{/each}}
-</ul>
+{{> displayBooks }}
