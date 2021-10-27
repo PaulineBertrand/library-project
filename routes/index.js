@@ -7,7 +7,11 @@ const protectPrivateRoute = require("./../middlewares/protectPrivateRoute")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("home/index", { title: "Express" });
+});
+
+router.get("/about", function (req, res, next) {
+  res.render("home/about");
 });
 
 router.get("/all-books", (req, res, next) => {
