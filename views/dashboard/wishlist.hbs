@@ -3,6 +3,7 @@
 {{> toolbar }}
 <ul>
   {{#each user.wishlist}}
+    <img src="{{this.image}}" alt="book image" width = "200px">
     <li>Title : {{this.title}}</li>
     <li>genre : {{this.genre}}</li>
     <li>owner : {{this.owner.name}}</li>

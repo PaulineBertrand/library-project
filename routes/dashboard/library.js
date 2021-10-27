@@ -8,6 +8,7 @@ const borrowingModel = require("./../../models/borrowingModel")
 const allGenres = bookModel.schema.path('genre').enumValues;
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 const exposeToolBar = require("./../../middlewares/exposeToolBar")
+const fileUploader = require("./../../config/cloudinary.config");
 
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
@@ -27,17 +28,30 @@ router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) =
 
 // 2 - Creating a book
 
-router.get('/create-book', protectPrivateRoute, (req, res, next) => {
+router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
     res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id })
 })
 
-router.post('/create-book', protectPrivateRoute, (req, res, next) => {
-    bookModel.create({...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
+router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), (req, res, next) => {
+
+    const newBook= { ...req.body };
+    if (req.file) {
+        console.log("im there lol")
+        newBook.image = req.file.path;
+    } else {
+        newBook.image = undefined;
+    }
+    newBook.owner = req.session.currentUser._id 
+
+    bookModel.create(newBook)
+    
     .then(() => {
         res.redirect(`/dashboard/my-library`);
     })
     .catch((err) => console.log("error while creating a book: ", err))
 })
+
+
 
 // 3 - Editing a book
 
@@ -49,8 +63,16 @@ router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
     .catch((err) => console.log('error while editing a book: ', err))
 });
 
-router.post('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
-    bookModel.findByIdAndUpdate({_id: req.params.id}, {...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
+router.post('/:id/edit-book', protectPrivateRoute, fileUploader.single('image'), (req, res, next) => {
+    const newBook= { ...req.body };
+    if (req.file) {
+        console.log("im there lol")
+        newBook.image = req.file.path;
+    } else {
+        newBook.image = undefined;
+    }
+    newBook.owner = req.session.currentUser._id 
+    bookModel.findByIdAndUpdate(req.params.id, newBook)
     .then(() => res.redirect(`/dashboard/my-library`))
     .catch((err) => console.log('error while editing a book: ', err))
 })

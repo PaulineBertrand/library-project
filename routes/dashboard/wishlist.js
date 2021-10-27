@@ -6,6 +6,7 @@ const borrowingModel = require("./../../models/borrowingModel");
 const { path } = require("../../app");
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 const exposeToolBar = require("./../../middlewares/exposeToolBar")
+const fileUploader = require("./../../config/cloudinary.config");
 
 // List all the list of the wishlist that we selected in all books
 router.get("/wishlist", protectPrivateRoute, exposeToolBar, async (req, res, next) => {

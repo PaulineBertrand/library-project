@@ -5,6 +5,7 @@ const bookModel = require("./../../models/bookModel");
 const borrowingModel = require("./../../models/borrowingModel");
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 const exposeToolBar = require("./../../middlewares/exposeToolBar")
+const fileUploader = require("./../../config/cloudinary.config");
 
 // getting all the user numbers (how many books in total etc), displaying them in the dashboard
 router.get('/', protectPrivateRoute, exposeToolBar,(req, res, next) => {

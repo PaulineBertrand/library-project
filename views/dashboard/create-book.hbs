@@ -1,5 +1,5 @@
 <h2>Add a book to your personal library</h2>
-<form action="/dashboard/create-book" method="post">
+<form action="/dashboard/create-book" method="post" enctype="multipart/form-data">
     <div>
         <label >Title</label>
         <input type="text" name="title">
@@ -21,7 +21,7 @@
 
     <div>
         <label >Image</label>
-        <input type="text" name="image">
+        <input input type="file"  name="image">
     </div>
 
     <div>
