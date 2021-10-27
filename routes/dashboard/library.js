@@ -106,6 +106,15 @@ router.get("/lended-library", protectPrivateRoute, (req, res, next) => {
     .catch((error) => console.error(error))
   })
 
+  // route qui change le statut d'un livre à "available"
+router.post("/:id/available",protectPrivateRoute, (req, res, next) => {
+    bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "available"}, { new: true })
+    .then((book) => {
+        borrowingModel.findByIdAndDelete(book._id)
+        res.redirect("/dashboard/lended-library")
+    })
+    .catch((error) => console.error(error))
+    })
 
 
 module.exports = router;

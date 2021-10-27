@@ -13,6 +13,8 @@
         <p>{{author}}</p>
         <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
         <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+              <form action="/dashboard/{{_id}}/available" method="post">
+        <button type="submit"> Make this book available again</button></form>
     </li>
 {{/each}}
 </ul>
