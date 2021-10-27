@@ -2,16 +2,32 @@
 
 <div>
 <h3><a href="/dashboard/my-library">My library : </a></h3>
-<p>You have {{nbAllBooks}} book(s), among which {{nbLendedBooks}} are currently lended.</p>
+{{#unless nbAllBooks}}
+<p>You don't have any books in your library.</p>
+{{/unless}}
+
+{{#isEqual nbAllBooks nbLendedBooks}}
+{{/isEqual}}
 </div>
 
 <div>
    <h3><a href="/dashboard/my-borrowed-books">Books that i have :</a></h3> 
-    <p>You are borrowing {{nbBorrowedBooks}} book(s).</p>
+
+       {{#unless nbBorrowedBooks}}
+<p>Currently, you don't borrow any books.</p>
+{{/unless}}
+
+{{#isEqualBorrowed nbBorrowedBooks}}
+{{/isEqualBorrowed}}
 
 </div>
 
 <div>
    <h3><a href="/dashboard/wishlist">My wishlist:</a></h3> 
-   <p>You have {{nbWishlistBooks}} book(s) in your wishlist.</p>
+   {{#unless nbWishlistBooks}}
+<p>You don't have any books in your wishlist.</p>
+{{/unless}}
+
+{{#isEqualWishlist nbWishlistBooks}}
+{{/isEqualWishlist}}
 </div>
