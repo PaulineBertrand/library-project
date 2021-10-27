@@ -50,7 +50,7 @@ router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
 
 router.post('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
     bookModel.findByIdAndUpdate({_id: req.params.id}, {...req.body, owner: req.session.currentUser._id, image: req.body.image || undefined})
-    .then(() => res.redirect(`dashboard/my-library`))
+    .then(() => res.redirect(`/dashboard/my-library`))
     .catch((err) => console.log('error while editing a book: ', err))
 })
 
