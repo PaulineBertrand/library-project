@@ -1,13 +1,13 @@
 <h2>Got something wrong? Edit your book information</h2>
-<form action="/dashboard/{{id}}/edit-book" method="post">
+<form action="/dashboard/{{book._id}}/edit-book" method="post">
     <div>
         <label >Title</label>
-        <input type="text" name="title" value={{title}}>
+        <input type="text" name="title" value="{{book.title}}">
     </div>
 
     <div>
         <label >Author</label>
-        <input type="text" name="author" value={{author}}>
+        <input type="text" name="author" value={{book.author}}>
     </div>
 
     <div>
@@ -27,7 +27,7 @@
 
         <div>
         <label >Optional: what did you think about this book?</label>
-        <input type="text" name="comment" value={{comment}}>
+        <input type="text" name="comment" value={{book.comment}}>
     </div>
 
     <button>OK</button>
