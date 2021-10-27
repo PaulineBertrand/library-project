@@ -19,7 +19,7 @@ router.post("/:id/borrow",protectPrivateRoute, (req, res, next) => {
 bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "borrowed"}, { new: true })
 .then((book) => {
     borrowingModel.create({book: book._id, borrower: req.session.currentUser._id}) 
-    res.redirect("/all-books/")
+    res.redirect("/all-books")
 })
 .catch((error) => console.error(error))
 })
@@ -28,7 +28,7 @@ bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "borrowed"}, { 
 router.post("/:id/add-wishlist", protectPrivateRoute, (req, res, next) => {
     userModel.findByIdAndUpdate(req.session.currentUser._id, {$push:{wishlist: req.params.id}})
     .then ((book) => {
-        res.redirect("/all-books/")
+        res.redirect("/all-books")
     })
     .catch((error) => console.error(error))
 })
@@ -37,9 +37,43 @@ router.post("/:id/add-wishlist", protectPrivateRoute, (req, res, next) => {
 router.post("/:id/remove-wishlist", protectPrivateRoute,(req, res, next) => {
     userModel.findByIdAndUpdate(req.session.currentUser._id, {$pull:{wishlist: req.params.id}})
     .then ((book) => {
-        res.redirect("/all-books/")
+        res.redirect("/all-books")
     })
     .catch((error) => console.error(error))
 })
+
+
+
+router.get("/filter", function (req, res, next) {
+
+    const regexp = new RegExp(req.query.search, "ig");
+    const databaseRequests = [
+        bookModel.find({ $and: [{owner: { $ne: req.session.currentUser?._id }}, {$or: [{ title: { $regex: regexp } }, { author: { $regex: regexp } }]} ] }),
+        userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+        borrowingModel.find({borrower: req.session.currentUser?._id})
+      ]
+    Promise.all(databaseRequests)
+    .then((responses) => {
+      const canStillBorrow = responses[2].length <= 5;
+      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search })
+    })
+    .catch((error) => console.error(error));
+  });
+
+  router.get("/available/filter", (req, res, next) => {
+    const regexp = new RegExp(req.query.search, "ig");
+    const databaseRequests = [
+        bookModel.find({ $and: [{status: "available"}, {owner: { $ne: req.session.currentUser?._id }}, {$or: [{ title: { $regex: regexp } }, { author: { $regex: regexp } }]} ] }),
+        userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+        borrowingModel.find({borrower: req.session.currentUser?._id})
+      ]
+    Promise.all(databaseRequests)
+    .then((responses) => {
+      const canStillBorrow = responses[2].length <= 5;
+      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search })
+    })
+    .catch((error) => console.error(error));
+    
+  })
 
 module.exports = router;

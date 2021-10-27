@@ -9,6 +9,13 @@ require("./config/mongodb");
 require("./helpers/hbs"); // custom functions adding features to hbs templates
 const session = require("express-session");
 
+const app = express();
+// view engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "hbs");
+// added this setup for partials
+hbs.registerPartials(path.join(__dirname , "views" , "partials"));
+
 const indexRouter = require("./routes/index");
 const allBooksRouter = require("./routes/all-books/all-books");
 const authRouter = require("./routes/auth");
@@ -16,7 +23,7 @@ const navigationRouter = require("./routes/dashboard/navigation");
 const libraryRouter = require("./routes/dashboard/library");
 const wishlistRouter = require("./routes/dashboard/wishlist");
 
-const app = express();
+
 
 // initialize session
 app.use(
@@ -27,11 +34,7 @@ app.use(
   })
 );
 
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "hbs");
-// added this setup for partials
-hbs.registerPartials(path.join(__dirname , "views" , "partials"));
+
 
 app.use(logger("dev"));
 app.use(express.json());
