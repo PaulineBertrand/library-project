@@ -100,14 +100,14 @@ router.get('/my-borrowed-books',  protectPrivateRoute, exposeToolBar, (req, res,
 })
 
 
-router.get("/lended-library", protectPrivateRoute, (req, res, next) => {
+router.get("/lended-library", protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.find({ $and: [ {status: "borrowed"}, { owner : { $eq: req.session.currentUser._id,} }] })
-    .then((books) => res.render("dashboard/lended-library", { books }))
+    .then((books) => res.render("dashboard/lended-library", { books, stats: res.locals.userNumbers  }))
     .catch((error) => console.error(error))
   })
 
   // route qui change le statut d'un livre à "available"
-router.post("/:id/available",protectPrivateRoute, (req, res, next) => {
+router.post("/:id/available",protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "available"}, { new: true })
     .then((book) => {
         borrowingModel.findByIdAndDelete(book._id)
