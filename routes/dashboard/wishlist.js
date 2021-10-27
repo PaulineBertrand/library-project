@@ -5,10 +5,10 @@ const userModel = require("./../../models/userModel");
 const borrowingModel = require("./../../models/borrowingModel");
 const { path } = require("../../app");
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
-
+const exposeToolBar = require("./../../middlewares/exposeToolBar")
 
 // List all the list of the wishlist that we selected in all books
-router.get("/wishlist", protectPrivateRoute, async (req, res, next) => {
+router.get("/wishlist", protectPrivateRoute, exposeToolBar, async (req, res, next) => {
   try {
     const user = await userModel
       .findById(req.session.currentUser._id)
@@ -18,7 +18,8 @@ router.get("/wishlist", protectPrivateRoute, async (req, res, next) => {
               path: 'owner'
           }
       });
-    res.render("dashboard/wishlist", { user });
+      console.log(res.locals.userNumbers)
+    res.render("dashboard/wishlist", { user, stats: res.locals.userNumbers });
 
   } catch (err) {
     next(err);
