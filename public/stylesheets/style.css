@@ -7,7 +7,7 @@
   box-sizing: border-box;
   font-family: 'EB Garamond', serif;
   letter-spacing: 1px;
-  color: var(--black-color);
+  
 }
 
 body{
@@ -15,17 +15,63 @@ body{
 }
 
 #nav-main {
-  height: 101px;
+  height: 100px;
   display: flex;
   align-items: center;
-  padding-left: 280px;
+  padding-left: 70px;
   padding-right: 60px;
   background-color: var(--dark-color);
-  justify-content: space-between;
-
+  justify-content: flex-end;
+  font-size: var(--font-size-xs);
+  
 }
 
 #nav-main > a {
   color: var(--third-color);
   text-decoration: none;
+  padding: 2px
+  
+}
+
+#nav-main > .how-does-it-work{
+  margin: 0px 50px;
+  letter-spacing: 1px;
+}
+
+#nav-main  .all-books{
+  margin-right: 335px;
+}
+
+#signin {
+  border: 1px solid var(--third-color);
+  width: 170px;
+  height: 35px;
+  text-align: center;
+  margin-left: 290px;
+}
+
+#nav-main  .my-dashboard{
+  position: relative;
+  right: 285px;
+  
+}
+
+#nav-main  .my-wishlist{
+  position: relative;
+  right: 245px;
+  margin-right: -50px;
+}
+
+#footer{
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 70px;
+  padding-right: 60px;
+  background-color: var(--dark-color);
+  justify-content: space-between;
+  font-size: var(--font-size-xs);
+  position: relative;
+  top: 320px;
+  color: var(--third-color);
 }
