@@ -40,7 +40,7 @@ router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) =
 // 2 - Creating a book
 
 router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
-    res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id })
+    res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id, cssTitle: 'form' })
 })
 
 router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), findCoverImage, (req, res, next) => {
@@ -82,7 +82,7 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
 router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
     bookModel.findById(req.params.id)
     .then((book) => {
-        res.render('dashboard/edit-book.hbs', { book, allGenres })
+        res.render('dashboard/edit-book.hbs', { book, allGenres, cssTitle: 'form' })
     })
     .catch((err) => console.log('error while editing a book: ', err))
 });
@@ -118,7 +118,7 @@ router.get('/:id/delete-book', protectPrivateRoute, (req, res, next) => {
 router.get('/my-borrowed-books',  protectPrivateRoute, exposeToolBar, (req, res, next) => {
     borrowingModel.find({borrower: req.session.currentUser._id}).populate("book")
     .then((borrowings) => {
-        res.render('dashboard/borrowed.hbs', { borrowings, stats: res.locals.userNumbers })
+        res.render('dashboard/borrowed.hbs', { borrowings, stats: res.locals.userNumbers, cssTitle: 'library' })
     })
     .catch((err) => console.log('error while displaying borrowed books: ', err))
 })
@@ -126,7 +126,7 @@ router.get('/my-borrowed-books',  protectPrivateRoute, exposeToolBar, (req, res,
 
 router.get("/lended-library", protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.find({ $and: [ {status: "borrowed"}, { owner : { $eq: req.session.currentUser._id,} }] })
-    .then((books) => res.render("dashboard/lended-library", { books, stats: res.locals.userNumbers  }))
+    .then((books) => res.render("dashboard/lended-library", { books, stats: res.locals.userNumbers, cssTitle: 'library'  }))
     .catch((error) => console.error(error))
   })
 
