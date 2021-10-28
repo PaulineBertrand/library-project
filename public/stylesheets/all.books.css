@@ -138,13 +138,9 @@ section {
 }
 
 section div {
-<<<<<<< HEAD
     /* width: 60vh; */
- 
     left: 40vh;
-=======
     margin-left: 40vh;
->>>>>>> 52a84e564eaea100a6a590e5a7beb35094fe8c65
 }
 
 #all-books {
