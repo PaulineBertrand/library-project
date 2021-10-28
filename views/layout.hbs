@@ -8,34 +8,24 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
     ></script>
     <link rel="stylesheet" href="/stylesheets/{{cssTitle}}.css" />
-  
-    
+
   </head>
   <body>
     <nav id="nav-main">
       <a href="/">home</a>
-
-      <a href="/about">How does it work ?</a>
-
+      <a class="how-does-it-work" href="/about">How does it work ?</a>
       {{#unless currentUser}}
         <a href="/all-books">all books</a>
-
-        <a id="sigin" href="/auth/signin">signup or login</a>
-
+        <a id="signin" href="/auth/signin">signup or login</a>
       {{else}}
-        <a href="/all-books">all books</a>
-
+        <a class="all-books" href="/all-books">all books</a>
         <a href="/dashboard">my dashboard</a>
         {{#if wishlist}}
-
-          <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i>
-            My wishlist</a>
+          <a href="/dashboard/wishlist"><i class="fas fa-heart"></i>My wishlist</a>
         {{/if}}
-
-        <a  href="/auth/signout">signout</a>
+        <a href="/auth/signout">signout</a>
       {{/unless}}
     </nav>
-
     {{{body}}}
   </body>
 </html>

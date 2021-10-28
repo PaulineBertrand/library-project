@@ -19,10 +19,23 @@ body{
   padding-left: 280px;
   padding-right: 60px;
   background-color: var(--dark-color);
-  justify-content: space-between;
+  justify-content: flex-end;
+  
 }
 
 #nav-main > a {
   color: var(--third-color);
   text-decoration: none;
+  padding: 4px
 }
+
+#nav-main > .how-does-it-work{
+  margin: 0px 50px;
+}
+
+#nav-main  .all-books{
+  margin-right: 335px;
+}
+
+
+
