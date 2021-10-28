@@ -26,6 +26,21 @@
     }
   }
   
+  #banner{
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100vw;
+  }
 
-  
-  
+  #banner .images > img{ 
+    width: 200px;
+    height: 300px;
+    transition: transform ease-in-out 1s;
+  }
+
+  #banner .images > img:hover{ 
+    transform: scale(1.5);
+    transition: transform ease-in-out 1s;
+  }
+
