@@ -37,7 +37,7 @@ router.get("/available", (req, res, next) => {
 // route qui affiche les détails d'un livre en particulier
 router.get("/:id/details",protectPrivateRoute, (req, res, next) => {
     bookModel.findById(req.params.id).populate('owner')
-    .then((book) => res.render("all-books/book-details.hbs", { book, cssTitle: "all.books"}))
+    .then((book) => res.render("all-books/book-details.hbs", { book, cssTitle: "books.details"}))
     .catch((error) => console.error(error))
 })
 

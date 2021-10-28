@@ -1,7 +1,6 @@
 h1 {
     text-align: center;
     padding: 50px 20px 50px 20px;
-    
 }
 
 
@@ -156,7 +155,8 @@ section div {
 
 #all-books li {
         list-style-type: none;
-        max-width: 218px;
+        width: 218px;
+        height: 440px;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -221,7 +221,14 @@ padding: 5px 10px;
 border-radius: 5px;
 cursor: pointer;
 border: var(--dark-color);
+margin-top: 10px;
 
+}
+
+h4 {
+        margin-top: 5px;   
+        margin-bottom: 5px;
+        font-style: italic;  
 }
 
 .borrow-button:hover {
@@ -290,4 +297,12 @@ a {
 
 .one-book h4 {
         display: none;
+}
+
+#container-image {
+        display: flex;
+        align-items: center;
+        width: 200px;
+        height: 255px;
+        margin: 0px;
 }
