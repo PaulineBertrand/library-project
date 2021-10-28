@@ -4,13 +4,18 @@
 
 <div class="dashboard-books-container">
 
-    <h1>My library</h1>
-    <a href="/dashboard/lended-library">Show only lent books</a>
-    <h2>All of my books</h2>
 
-    {{#unless books}}
-    <p>Your library is empty!</p>
-    {{/unless}}
+    <h1>My library</h1>
+
+    <div class="dashboard-msg">
+
+        <a class="dashboard-link" href="/dashboard/lended-library">Show only lent books</a>
+
+        {{#unless books}}
+        <p>Your library is empty!</p>
+        {{/unless}}
+
+    </div>
 
     <ul>
     {{#each books}}

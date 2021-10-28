@@ -87,14 +87,16 @@ body{
   width: 20px;
 }
 
-.toolbar {
+#toolbar {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
 }
 
-.toolbar a {
+#toolbar a {
   text-decoration: none;
-  color: var(--dark-color);
-  font-size: var(--font-size-xs);
-  margin-bottom: 200px;
+  color: var(--black-color);
+  font-size: 25px;
 }
