@@ -8,34 +8,30 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
     ></script>
     <link rel="stylesheet" href="/stylesheets/{{cssTitle}}.css" />
-  
-    
+
   </head>
   <body>
     <nav id="nav-main">
       <a href="/">Home</a>
-
-      <a href="/about">How does it work ?</a>
-
+      <a class="how-does-it-work" href="/about">How does it work ?</a>
       {{#unless currentUser}}
         <a href="/all-books">All books</a>
-
-        <a id="sigin" href="/auth/signin">Signup or login</a>
-
+        <a id="signin" href="/auth/signin">Signup or Login</a>
       {{else}}
-        <a href="/all-books">All books</a>
-
-        <a href="/dashboard">My dashboard</a>
+        <a class="all-books" href="/all-books">All books</a>
+        <a class="my-dashboard" href="/dashboard">My dashboard</a>
         {{#if wishlist}}
-
-          <a href="/dashboard/wishlist"><i class="fas fa-heart"> </i>
-            My wishlist</a>
+          <a class="my-wishlist" href="/dashboard/wishlist"> <i class="fas fa-heart"></i> My wishlist</a>
         {{/if}}
-
-        <a  href="/auth/signout">Sign out</a>
+        <a href="/auth/signout">Sign Out</a>
       {{/unless}}
     </nav>
-
     {{{body}}}
+    <footer id="footer">
+      <p>© Marie Pauline David</p>
+      <div>
+        <i class="fab fa-twitter"></i> <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i>
+      </div> 
+    </footer>
   </body>
 </html>
