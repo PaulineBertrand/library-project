@@ -20,7 +20,7 @@ router.get("/wishlist", protectPrivateRoute, exposeToolBar, async (req, res, nex
           }
       });
       console.log(res.locals.userNumbers)
-    res.render("dashboard/wishlist", { user, stats: res.locals.userNumbers });
+    res.render("dashboard/wishlist", { user, stats: res.locals.userNumbers, cssTitle: 'library' });
 
   } catch (err) {
     next(err);
