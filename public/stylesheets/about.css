@@ -1,12 +1,19 @@
 #how {
     padding: 50px 200px;
+    margin-bottom: 50px;
 }
 
 #how h3 {
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
-#how p, #how h1 {
+#how p {
     margin-bottom: 30px;
+    text-align: justify;
+} 
+
+#how h1 {
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .separator {
