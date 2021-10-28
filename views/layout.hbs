@@ -12,18 +12,18 @@
   </head>
   <body>
     <nav id="nav-main">
-      <a href="/">home</a>
+      <a href="/">Home</a>
       <a class="how-does-it-work" href="/about">How does it work ?</a>
       {{#unless currentUser}}
-        <a href="/all-books">all books</a>
-        <a id="signin" href="/auth/signin">signup or login</a>
+        <a href="/all-books">All books</a>
+        <a id="signin" href="/auth/signin">Signup or Login</a>
       {{else}}
-        <a class="all-books" href="/all-books">all books</a>
-        <a href="/dashboard">my dashboard</a>
+        <a class="all-books" href="/all-books">All books</a>
+        <a class="my-dashboard" href="/dashboard">My dashboard</a>
         {{#if wishlist}}
-          <a href="/dashboard/wishlist"><i class="fas fa-heart"></i>My wishlist</a>
+          <a class="my-wishlist" href="/dashboard/wishlist"> <i class="fas fa-heart"></i> My wishlist</a>
         {{/if}}
-        <a href="/auth/signout">signout</a>
+        <a href="/auth/signout">Signout</a>
       {{/unless}}
     </nav>
     {{{body}}}
