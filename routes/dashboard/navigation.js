@@ -10,7 +10,7 @@ const fileUploader = require("./../../config/cloudinary.config");
 // getting all the user numbers (how many books in total etc), displaying them in the dashboard
 router.get('/', protectPrivateRoute, exposeToolBar,(req, res, next) => {
  
-    res.render('dashboard/navigation', {stats: res.locals.userNumbers})
+    res.render('dashboard/navigation', {stats: res.locals.userNumbers , cssTitle:'dashboard'})
  
 });
 
@@ -19,7 +19,7 @@ router.get('/lended', protectPrivateRoute, function(req, res, next){
 
   userModel.findById(req.session.currentUser.id)
   
-  .then((user) => res.render("dashboard/lended", { user }))
+  .then((user) => res.render("dashboard/lended", { user, cssTitle:'dashboard' }))
   .catch(next);
 })
 

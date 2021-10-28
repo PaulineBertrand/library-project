@@ -1,5 +1,5 @@
-<div id="dashboardSection">
-  <h1>Dashboard</h1>
+<div id="dashboard-section">
+  <h1 class="love" >Dashboard</h1>
 
   <div>
     <h3><a href="/dashboard/my-library">My library : </a></h3>
@@ -11,7 +11,7 @@
     {{#isEqual stats.nbAllBooks stats.nbLendedBooks}}{{/isEqual}}
   </div>
 
-  <div>
+  <div class="books-that-i-have">
     <h3><a href="/dashboard/my-borrowed-books">Books that i have :</a></h3>
 
     {{#unless stats.nbBorrowedBooks}}

@@ -1,0 +1,17 @@
+#dashboard-section {
+  position: relative;
+  display: flex;
+  top: 130px;
+  text-align: center;
+  flex-direction: column;
+}
+
+#dashboard-section  a{
+    text-decoration: none;
+    color: var(--black-color);
+  }
+
+
+  #dashboard-section  .books-that-i-have{
+      margin: 10px;
+  }
