@@ -1,0 +1,16 @@
+#how {
+    padding: 50px 200px;
+}
+
+#how h3 {
+    margin-bottom: 20px;
+}
+#how p, #how h1 {
+    margin-bottom: 30px;
+}
+
+.separator {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
