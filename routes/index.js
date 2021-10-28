@@ -7,7 +7,7 @@ const protectPrivateRoute = require("./../middlewares/protectPrivateRoute")
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("home/index", { title: "Express" });
+  res.render("home/index", { cssTitle: "home" });
 });
 
 // get the "how does it function" page
