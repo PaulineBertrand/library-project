@@ -1,19 +1,19 @@
 <div id="dashboard-section">
-  <h1 class="love" >Dashboard</h1>
+  <h1>Dashboard</h1>
 
   <div>
-    <h3><a href="/dashboard/my-library">My library : </a></h3>
+    <h3 class="titles-dashboard bounce-top"><a href="/dashboard/my-library">My library  </a></h3>
     {{#unless stats.nbAllBooks}}
       <p>You don't have any books in your library.</p>
     {{/unless}}
 
    
     {{#isEqual stats.nbAllBooks stats.nbLendedBooks}}{{/isEqual}}
-    <a href="/dashboard/create-book">Add a book</a>
+    <h4 class="adding-buttons jello-horizontal"><a href="/dashboard/create-book">Add a book</a></h4>
   </div>
 
   <div class="books-that-i-have">
-    <h3><a href="/dashboard/my-borrowed-books">Books that i have :</a></h3>
+    <h3 class="titles-dashboard bounce-top"><a href="/dashboard/my-borrowed-books">Books that i have </a></h3>
 
     {{#unless stats.nbBorrowedBooks}}
       <p>Currently, you don't borrow any books.</p>
@@ -21,11 +21,11 @@
 
     {{#isEqualBorrowed stats.nbBorrowedBooks}}{{/isEqualBorrowed}}
 
-     <a href="/all-books">Borrow a book</a>
+     <h4 class="adding-buttons jello-horizontal"><a href="/all-books">Borrow a book</a></h4>
   </div>
 
   <div>
-    <h3><a href="/dashboard/wishlist">My wishlist:</a></h3>
+    <h3 class="titles-dashboard bounce-top"><a href="/dashboard/wishlist">My wishlist</a></h3>
 
     {{#unless stats.nbWishlistBooks}}
       <p>You don't have any books in your wishlist.</p>
@@ -33,7 +33,7 @@
 
     {{#isEqualWishlist stats.nbWishlistBooks}}{{/isEqualWishlist}}
 
-    <a href="/all-books">Add a book to my wishlist</a>
+    <h4 class="adding-buttons jello-horizontal"><a href="/all-books">Add a book to my wishlist</a></h4>
   </div>
 
 </div>
