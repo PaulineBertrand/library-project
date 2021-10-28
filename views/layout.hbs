@@ -13,21 +13,10 @@
   <body>
     <nav id="nav-main">
       <a href="/">Home</a>
-<<<<<<< HEAD
       <a class="how-does-it-work" href="/about">How does it work ?</a>
       {{#unless currentUser}}
         <a href="/all-books">All books</a>
         <a id="signin" href="/auth/signin">Signup or Login</a>
-=======
-
-      <a href="/about">How does it work ?</a>
-
-      {{#unless currentUser}}
-        <a href="/all-books">All books</a>
-
-        <a id="sigin" href="/auth/signin">Signup or login</a>
-
->>>>>>> 64d58dec1b6a8419ee82b3dc0ceaeb6f0818a884
       {{else}}
         <a class="all-books" href="/all-books">All books</a>
         <a class="my-dashboard" href="/dashboard">My dashboard</a>
@@ -38,5 +27,11 @@
       {{/unless}}
     </nav>
     {{{body}}}
+    <footer id="footer">
+      <p>© Marie Pauline David</p>
+      <div>
+        <i class="fab fa-twitter"></i> <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i>
+      </div> 
+    </footer>
   </body>
 </html>
