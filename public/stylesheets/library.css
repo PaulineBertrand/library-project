@@ -2,18 +2,6 @@ body {
     height: 150vh;
 }
 
-.toolbar {
-    position: fixed;
-    padding: 20px;
-}
-
-.toolbar a {
-    text-decoration: none;
-    color: var(--dark-color);
-    font-size: var(--font-size-xs);
-    margin-bottom: 20px;
-}
-
 .dashboard-books-container {
     margin-left: 40vh;
 }
