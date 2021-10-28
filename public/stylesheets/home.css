@@ -1,0 +1,38 @@
+
+  
+  #presentation-page {
+    display: flex;
+    height: 350px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-bg-color);
+  }
+  
+  .focus-in-expand {
+      animation: focus-in-expand 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+    font-size: var(--font-size-xl);
+  }
+  
+   @keyframes focus-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
+  
+  #sigin {
+    border: 1px solid var(--third-color);
+    width: 150px;
+    height: 35px;
+    text-align: center;
+  }
+  
+  
+  

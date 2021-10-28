@@ -1,0 +1,13 @@
+:root {
+    --main-bg-color: #d9c8a0;
+    --dark-color: #264653;
+    --third-color: #a37e5a;
+    --black-color: #03171f;
+    --width-image-book-s: 200px;
+    --width-image-book-l: 400px;
+    --font-size-xl: 80px;
+    --font-size-l: 60px;
+    --font-size-m: 40px;
+    --font-size-s: 30px;
+    --font-size-xs: 20px;
+  }
