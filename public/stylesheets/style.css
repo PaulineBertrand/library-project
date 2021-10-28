@@ -1,16 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap");
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-  font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
   letter-spacing: 1px;
-  
 }
 
-body{
+body {
   background-color: #d9c8a0;
 }
 
@@ -23,29 +21,25 @@ body{
   background-color: var(--dark-color);
   justify-content: flex-end;
   font-size: var(--font-size-xs);
-  
 }
 
 #nav-main > a {
   color: var(--third-color);
   text-decoration: none;
-  padding: 2px
-  
+  padding: 2px;
 }
-
 
 #nav-main > a:hover {
   text-decoration: underline var(--third-color);
   font-weight: bolder;
-  
 }
 
-#nav-main > .how-does-it-work{
+#nav-main > .how-does-it-work {
   margin: 0px 50px;
   letter-spacing: 1px;
 }
 
-#nav-main  .all-books{
+#nav-main .all-books {
   margin-right: 335px;
 }
 
@@ -57,19 +51,18 @@ body{
   margin-left: 290px;
 }
 
-#nav-main  .my-dashboard{
+#nav-main .my-dashboard {
   position: relative;
   right: 285px;
-  
 }
 
-#nav-main  .my-wishlist{
+#nav-main .my-wishlist {
   position: relative;
   right: 245px;
   margin-right: -50px;
 }
 
-#footer{
+#footer {
   height: 56px;
   display: flex;
   align-items: center;
@@ -83,7 +76,7 @@ body{
   color: var(--third-color);
 }
 
-#logo{
+#logo {
   width: 20px;
 }
 
@@ -101,5 +94,6 @@ body{
 
 #nav-main img {
   width: 100px;
-
+  position: relative;
+  right: 280px;
 }

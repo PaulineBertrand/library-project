@@ -10,7 +10,7 @@
   }
   
   .focus-in-expand {
-      animation: focus-in-expand 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+      animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
     font-size: var(--font-size-xl);
   }
   
