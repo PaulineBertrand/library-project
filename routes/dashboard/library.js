@@ -22,7 +22,7 @@ const findCoverImage = require("../../middlewares/bookCovers.js");
 router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.find({owner: req.session.currentUser._id})
     .then((books) => {
-        res.render('dashboard/my-library.hbs', { books, stats: res.locals.userNumbers })
+        res.render('dashboard/my-library.hbs', { books, stats: res.locals.userNumbers, cssTitle: 'library' })
     })
     .catch((err) => console.log("error while displaying my-library: ", err))
 });

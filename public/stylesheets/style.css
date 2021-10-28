@@ -21,9 +21,14 @@ body{
   padding-left: 70px;
   padding-right: 60px;
   background-color: var(--dark-color);
+<<<<<<< HEAD
   justify-content: flex-end;
   font-size: var(--font-size-xs);
   
+=======
+  justify-content: space-between;
+
+>>>>>>> 64d58dec1b6a8419ee82b3dc0ceaeb6f0818a884
 }
 
 #nav-main > a {

@@ -15,7 +15,7 @@ const bookSchema = new Schema({
     comment: String,
     image: {
         type: String,
-        default: "https://bit.ly/3Chl6ko"
+        default: "/images/bookcover.png"
     },
     owner: {
         type: Schema.Types.ObjectId,

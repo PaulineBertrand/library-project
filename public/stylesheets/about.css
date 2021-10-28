@@ -1,0 +1,23 @@
+#how {
+    padding: 50px 200px;
+    margin-bottom: 50px;
+}
+
+#how h3 {
+    margin: 20px 0;
+}
+#how p {
+    margin-bottom: 30px;
+    text-align: justify;
+} 
+
+#how h1 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.separator {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}

@@ -10,9 +10,9 @@ router.get("/", function (req, res, next) {
   res.render("home/index", { cssTitle: "home" });
 });
 
-// get the "how does it function" page
+// get the "how does it work" page
 router.get("/about", function (req, res, next) {
-  res.render("home/about");
+  res.render("home/about", {cssTitle: 'about'});
 });
 
 module.exports = router;
