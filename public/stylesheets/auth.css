@@ -8,6 +8,8 @@
     height: 40vh;
     border-radius: 20px;
     margin: 0px;
+    -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .form {
@@ -48,7 +50,8 @@ input {
 }
 
 h1 {
-    color: var(--dark-color)
+    color: var(--dark-color);
+    margin-bottom: 10px;
 }
 
 @-webkit-keyframes heartbeat {
@@ -120,6 +123,31 @@ h1 {
     }
   }
 
+  p {
+          margin-top: 5px;
+  }
   p a {
       color: var(--dark-color)
   }
+
+  @-webkit-keyframes shadow-drop-center {
+        0% {
+          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+                  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+        }
+      }
+      @keyframes shadow-drop-center {
+        0% {
+          -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+                  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+        }
+      }
+      
