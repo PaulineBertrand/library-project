@@ -1,28 +1,34 @@
+<div class="toolbar">
 {{> toolbar }}
+</div>
 
-<h1>My library</h1>
-<a href="/dashboard/lended-library">Show only lent books</a>
-<h2>All of my books</h2>
+<div class="dashboard-books-container">
 
-{{#unless books}}
-<p>Your library is empty!</p>
-{{/unless}}
+    <h1>My library</h1>
+    <a href="/dashboard/lended-library">Show only lent books</a>
+    <h2>All of my books</h2>
 
-<ul>
-{{#each books}}
-    <li class="one-book">
-        <img src="{{image}}" alt="book image">
-        <div class="one-book-info">
-            <h4>{{title}}</h4>
-            <p>{{author}}</p>
-            <div class="one-book-buttons">
-                <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
-                <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+    {{#unless books}}
+    <p>Your library is empty!</p>
+    {{/unless}}
+
+    <ul>
+    {{#each books}}
+        <li class="one-book">
+            <img src="{{image}}" alt="book image">
+            <div class="one-book-info">
+                <h4>{{title}}</h4>
+                <p>{{author}}</p>
+                <div class="one-book-buttons">
+                    <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
+                    <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+                </div>
             </div>
-        </div>
-    </li>
-{{/each}}
-</ul>
+        </li>
+    {{/each}}
+    </ul>
 
-<a href="/dashboard/create-book">Add a book</a>
+    <a href="/dashboard/create-book">Add a book</a>
+
+</div>
 

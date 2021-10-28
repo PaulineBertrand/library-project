@@ -1,23 +1,27 @@
-<h1>The books I am borrowing at the moment</h1>
-{{> toolbar }}
+<div class="toolbar">
+    {{> toolbar }}
+</div>
+
+<div class="dashboard-books-container">
+
+    <h1>The books I am borrowing at the moment</h1>
+
+    <ul>
+    {{#each borrowings}}
+        <li class="one-book">
+            <img src="{{book.image}}" alt="book image" width = "200px">
+            <h4>{{book.title}}</h4>
+            <p>{{book.author}}</p>
+        </li>
+    {{/each}}
+    </ul>
 
 
+    {{#unless borrowings.length}}
+    <p>You are not borrowing any books!</p>
+    <a href="/all-books">Borrow a book</a>
+    {{else}}
+    <a href="/all-books">Borrow another book</a>
+    {{/unless}}
 
-
-<ul>
-{{#each borrowings}}
-    <li class="one-book">
-        <img src="{{book.image}}" alt="book image" width = "200px">
-        <h4>{{book.title}}</h4>
-        <p>{{book.author}}</p>
-    </li>
-{{/each}}
-</ul>
-
-
-{{#unless borrowings.length}}
-<p>You are not borrowing any books!</p>
-<a href="/all-books">Borrow a book</a>
-{{else}}
-<a href="/all-books">Borrow another book</a>
-{{/unless}}
+</div>
