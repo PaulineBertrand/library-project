@@ -7,7 +7,7 @@ const userModel = require("./../../models/userModel")
 const borrowingModel = require("./../../models/borrowingModel")
 const allGenres = bookModel.schema.path('genre').enumValues;
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
-const exposeToolBar = require("./../../middlewares/exposeToolBar")
+const exposeToolBar = require("./../../middlewares/exposeToolBar");
 const fileUploader = require("./../../config/cloudinary.config");
 const findCoverImage = require("../../middlewares/bookCovers.js");
 
