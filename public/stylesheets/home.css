@@ -4,12 +4,12 @@
     align-items: center;
     padding-left: 280px;
     padding-right: 60px;
-    background-color: #264653;
+    background-color: var(--dark-color);
     justify-content: space-between;
   }
   
   #nav-main > a {
-    color: #a37e5a;
+    color: var(--third-color);
     text-decoration: none;
   }
   
@@ -19,12 +19,12 @@
     align-content: center;
     align-items: center;
     justify-content: center;
-    background-color: #d9c8a0;
+    background-color: var(--main-bg-color);
   }
   
   .focus-in-expand {
       animation: focus-in-expand 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
-    font-size: 80px;
+    font-size: var(--font-size-xl);
   }
   
    @keyframes focus-in-expand {
@@ -41,7 +41,7 @@
   
   
   #sigin {
-    border: 1px solid #a37e5a;
+    border: 1px solid var(--third-color);
     width: 150px;
     height: 35px;
     text-align: center;
