@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = function findCoverImage(req, res, next) {
-    const coverIdUrl = '/search.json?title=' + req.body.title.toLowerCase().replace(" ", "+", "g") + '&author=' + req.body.author.toLowerCase().replaceAll(" ", "+");
+    const coverIdUrl = '/search.json?title=' + req.body.title.toLowerCase().replace(" ", "+", "g") + '&author=' + req.body.author.toLowerCase().replace(" ", "+", "g");
     const api = axios.create({
         baseURL: 'https://openlibrary.org'
     });
