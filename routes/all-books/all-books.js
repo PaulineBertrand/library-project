@@ -6,7 +6,7 @@ const borrowingModel = require ("./../../models/borrowingModel");
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 
 // get the "all-books" page
-router.get("/", (req, res, next) => {
+router.get(["/", ""], (req, res, next) => {
   const databaseRequests = [
     bookModel.find({ owner: { $ne: req.session.currentUser?._id } }),
     userModel.findById(req.session.currentUser?._id).populate("wishlist"),
@@ -15,7 +15,7 @@ router.get("/", (req, res, next) => {
 Promise.all(databaseRequests)
     .then((responses) => {
       const canStillBorrow = responses[2].length <= 5;
-      res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, cssTitle: "all.books" })
+      res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], wishlist: true, canStillBorrow, cssTitle: "all.books" })
     })
     .catch((error) => console.error(error));
 });

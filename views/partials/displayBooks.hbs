@@ -31,7 +31,7 @@
       <form action="/all-books/{{_id}}/borrow" method="post">
         <button type="submit" class="borrow-button active"> Borrow this book</button></form>
       {{/if}}
-
+<h4>Currently borrowed</h4>
 {{#unless ../currentUser}}
 <form action="/all-books/{{_id}}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"> <i id="far" class="far fa-heart fa-2x"></i><i id="fas" class="fas fa-heart fa-2x"></i></button></form>
         {{else}}

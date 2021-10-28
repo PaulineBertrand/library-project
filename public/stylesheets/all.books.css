@@ -139,7 +139,6 @@ section {
 
 section div {
     /* width: 60vh; */
- 
     left: 40vh;
     margin-left: 40vh;
 }
@@ -270,7 +269,7 @@ a {
 
       .one-book.grey-card {
               background-color: grey;
-              opacity: 60%;
+              opacity: 80%;
               
       }
 
@@ -280,3 +279,15 @@ a {
         border:none;
         background-color: grey;
       }
+
+      .one-book.grey-card .borrow-button {
+              display: none;
+      }
+
+      .one-book.grey-card h4 {
+        display: inline-block;
+}
+
+.one-book h4 {
+        display: none;
+}
