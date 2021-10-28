@@ -9,11 +9,11 @@ let msg = null;
 
 
 router.get("/signin", (req, res, next) => {
-  res.render("auth/signin");
+  res.render("auth/signin", {cssTitle : "auth"});
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {cssTitle : "auth"});
 });
 
 router.get("/signout", (req, res) => {

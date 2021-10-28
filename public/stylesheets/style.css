@@ -33,6 +33,13 @@ body{
   
 }
 
+
+#nav-main > a:hover {
+  text-decoration: underline var(--third-color);
+  font-weight: bolder;
+  
+}
+
 #nav-main > .how-does-it-work{
   margin: 0px 50px;
   letter-spacing: 1px;

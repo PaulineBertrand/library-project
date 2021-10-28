@@ -1,5 +1,8 @@
+
+<h1 id="dashboard">Dashboard</h1>
+
 <div id="dashboard-section">
-  <h1>Dashboard</h1>
+  
 
   <div>
     <h3 class="titles-dashboard bounce-top"><a href="/dashboard/my-library">My library  </a></h3>
@@ -9,7 +12,7 @@
 
    
     {{#isEqual stats.nbAllBooks stats.nbLendedBooks}}{{/isEqual}}
-    <h4 class="adding-buttons jello-horizontal"><a href="/dashboard/create-book">Add a book</a></h4>
+    <p class="adding-buttons jello-horizontal"><a href="/dashboard/create-book">Add a book</a></p>
   </div>
 
   <div class="books-that-i-have">
@@ -21,7 +24,7 @@
 
     {{#isEqualBorrowed stats.nbBorrowedBooks}}{{/isEqualBorrowed}}
 
-     <h4 class="adding-buttons jello-horizontal"><a href="/all-books">Borrow a book</a></h4>
+     <p class="adding-buttons jello-horizontal"><a href="/all-books">Borrow a book</a></p>
   </div>
 
   <div>
@@ -33,7 +36,7 @@
 
     {{#isEqualWishlist stats.nbWishlistBooks}}{{/isEqualWishlist}}
 
-    <h4 class="adding-buttons jello-horizontal"><a href="/all-books">Add a book to my wishlist</a></h4>
+    <p class="adding-buttons jello-horizontal"><a href="/all-books">Add a book to my wishlist</a></p>
   </div>
 
 </div>

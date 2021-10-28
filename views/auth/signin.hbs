@@ -1,13 +1,22 @@
+<div id="container-auth">
+
+<section class="auth">
+
+<h1>Connect to your account</h1>
 <form method="post" action="/auth/signin" class="form">
     {{> flashMessage }}
 
 
-    <label for="email">email</label>
-    <input class="input" type="email" id="email" name="email" value="mar@ie.po">
-    <label for="password">password</label>
-    <input class="input" type="password" id="password" name="password" value="1234">
-    <button class="btn">signin</button>
+    {{!-- <label for="email">email</label> --}}
+    <input class="input" type="email" id="email" name="email" placeholder="Email">
+    {{!-- <label for="password">password</label> --}}
+    <input class="input" type="password" id="password" name="password" placeholder="Password">
+    <button class="btn">Sign in</button>
 </form>
 <p>
-    Don't have an account yet ? <a href="/auth/signup">signup</a>
+    Don't have an account yet ? <a href="/auth/signup">Sign up</a>
 </p>
+
+</section>
+
+</div>
