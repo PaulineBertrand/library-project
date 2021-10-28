@@ -1,4 +1,4 @@
-
+<section>
 
 <nav id="nav-all-books">
      <form action="/all-books/filter" method="get">
@@ -10,7 +10,7 @@
 
 
 
-
+<div>
 {{#unless canStillBorrow}}
 <p class="book-limit-message">You are at your book limit. You cannot borrow more books at the moment.</p>
 {{/unless}}
@@ -41,3 +41,6 @@
     </li>
   {{/each}}
 </ul>
+</div>
+
+</section>

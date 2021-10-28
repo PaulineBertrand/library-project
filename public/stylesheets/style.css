@@ -22,6 +22,7 @@ body{
   padding-right: 60px;
   background-color: var(--dark-color);
   justify-content: space-between;
+
 }
 
 #nav-main > a {
