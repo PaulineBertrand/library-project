@@ -9,6 +9,7 @@
 
    
     {{#isEqual stats.nbAllBooks stats.nbLendedBooks}}{{/isEqual}}
+    <a href="/dashboard/create-book">Add a book</a>
   </div>
 
   <div class="books-that-i-have">
@@ -20,6 +21,7 @@
 
     {{#isEqualBorrowed stats.nbBorrowedBooks}}{{/isEqualBorrowed}}
 
+     <a href="/all-books">Borrow a book</a>
   </div>
 
   <div>
@@ -30,6 +32,8 @@
     {{/unless}}
 
     {{#isEqualWishlist stats.nbWishlistBooks}}{{/isEqualWishlist}}
+
+    <a href="/all-books">Add a book to my wishlist</a>
   </div>
 
 </div>
