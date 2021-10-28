@@ -45,3 +45,6 @@
     transition: transform ease-in-out 1s;
   }
 
+body {
+  height: 83vh;
+}
