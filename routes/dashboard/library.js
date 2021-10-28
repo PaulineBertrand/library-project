@@ -135,7 +135,8 @@ router.post("/:id/available",protectPrivateRoute, exposeToolBar, (req, res, next
     bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "available"}, { new: true })
     .then((book) => {
         console.log('book id', book._id);
-        borrowingModel.findOneAndDelete({ book: {$eq:book._id}});
+        const mybookid= book._id.toString()
+        borrowingModel.findOneAndDelete({ book: mybookid});
         res.redirect("/dashboard/lended-library")
     })
     .catch((error) => console.error(error))
