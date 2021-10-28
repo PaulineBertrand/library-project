@@ -66,7 +66,7 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
     newBook.title = capitalizeEachWord(req.body.title);
     newBook.author = capitalizeEachWord(req.body.author);
 
-    // And we can know create the book!    
+    // And we can now create the book!    
     bookModel.create(newBook)
     
     .then(() => {
