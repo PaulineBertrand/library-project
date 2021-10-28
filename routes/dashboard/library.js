@@ -134,7 +134,9 @@ router.get("/lended-library", protectPrivateRoute, exposeToolBar, (req, res, nex
 router.post("/:id/available",protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "available"}, { new: true })
     .then((book) => {
-        borrowingModel.findByIdAndDelete(book._id)
+        console.log('book id', book._id);
+        const mybookid= book._id.toString()
+        borrowingModel.findOneAndDelete({ book: mybookid});
         res.redirect("/dashboard/lended-library")
     })
     .catch((error) => console.error(error))
