@@ -39,8 +39,10 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
     console.log(res.locals.coverURL)
     if (req.file) {
         newBook.image = req.file.path;
-    } else {
+    } else if (res.locals.coverURL) {
         newBook.image = res.locals.coverURL
+    } else {
+        newBook.image = undefined
     }
     newBook.owner = req.session.currentUser._id 
 
