@@ -1,0 +1,13 @@
+ul {
+    list-style-type: none; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: start;
+    flex-wrap: wrap;
+}
+
+.one-book {
+    width: 15%;
+    margin: 15px;
+}
