@@ -98,3 +98,8 @@ body{
   font-size: var(--font-size-xs);
   margin-bottom: 200px;
 }
+
+#nav-main img {
+  width: 100px;
+
+}
