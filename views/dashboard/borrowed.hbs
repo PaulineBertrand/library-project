@@ -6,22 +6,28 @@
 
     <h1>The books I am borrowing at the moment</h1>
 
+    <div class="dashboard-msg">
+
+        {{#unless borrowings.length}}
+            <p>You are not borrowing any books!</p>
+            <a class="dashboard-link" href="/all-books">Borrow a book</a>
+        {{else}}
+            <a class="dashboard-link" href="/all-books">Borrow another book</a>
+        {{/unless}}
+    
+    </div>
+
     <ul>
     {{#each borrowings}}
         <li class="one-book">
             <img src="{{book.image}}" alt="book image" width = "200px">
-            <h4>{{book.title}}</h4>
-            <p>{{book.author}}</p>
+            
+            <div class="one-book-buttons">  
+                <h4>{{book.title}}</h4>
+                <p>{{book.author}}</p>
+            </div>
         </li>
     {{/each}}
     </ul>
-
-
-    {{#unless borrowings.length}}
-    <p>You are not borrowing any books!</p>
-    <a href="/all-books">Borrow a book</a>
-    {{else}}
-    <a href="/all-books">Borrow another book</a>
-    {{/unless}}
 
 </div>

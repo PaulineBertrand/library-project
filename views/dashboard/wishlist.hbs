@@ -1,23 +1,37 @@
-<h1>Wishlist</1h>
+<div class="toolbar">
+    {{> toolbar }}
+</div>
 
-{{> toolbar }}
-<ul>
-  {{#each user.wishlist}}
-    <img src="{{this.image}}" alt="book image" width = "200px">
-    <li>Title : {{this.title}}</li>
-    <li>genre : {{this.genre}}</li>
-    <li>owner : {{this.owner.name}}</li>
-    <br>
-    <form action="/dashboard/{{_id}}/remove-wishlist" data-id="{{_id}}" method="post" class="remove-wishlist">
-        <button type="submit"> Remove from wishlist</button></form>
-  {{/each}}
-   
-</ul>
+<div class="dashboard-books-container">
 
+  <h1>Wishlist</h1>
 
-{{#unless user.wishlist.length}}
-<p>You don't have any books in your wishlist !</p>
-<a href="/all-books">Add a book to my wishlist</a>
-{{else}}
-<a href="/all-books">Add another book to my wishlist</a>
-{{/unless}}
+  <div class="dashboard-msg">
+    {{#unless user.wishlist.length}}
+      <p>You don't have any books in your wishlist !</p>
+      <a class="dashboard-link" href="/all-books">Add a book to my wishlist</a>
+    {{else}}
+      <a class="dashboard-link" href="/all-books">Add another book to my wishlist</a>
+    {{/unless}}
+  </div>
+
+  <ul>
+    {{#each user.wishlist}}
+    <li class="one-book">
+      <img src="{{this.image}}" alt="book image" width = "200px">
+      <div class="one-book-info">
+
+        <h4>{{this.title}}</h4>
+        <p>{{this.author}}</p>
+
+        <div class="one-book-buttons">
+          <form action="/dashboard/{{_id}}/remove-wishlist" data-id="{{_id}}" method="post" class="remove-wishlist">
+              <button type="submit"> Remove from wishlist</button></form>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+    
+  </ul>
+
+</div>

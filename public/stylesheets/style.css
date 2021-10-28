@@ -80,20 +80,27 @@ body {
   width: 20px;
 }
 
-.toolbar {
+#toolbar {
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
 }
 
-.toolbar a {
+#toolbar a {
   text-decoration: none;
+  font-size: 25px;
   color: var(--dark-color);
-  font-size: var(--font-size-xs);
   margin-bottom: 200px;
 }
 
 #nav-main img {
   width: 100px;
+<<<<<<< HEAD
   position: relative;
   right: 280px;
+=======
+
+>>>>>>> 8db59e6e9b8e8d489a227c9b0470c074e86032b4
 }
