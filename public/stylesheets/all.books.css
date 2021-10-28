@@ -138,8 +138,8 @@ section {
 
 section div {
     /* width: 60vh; */
-    position: absolute;
-    left: 40vh;
+    
+    margin-left: 40vh;
 }
 
 #all-books {
@@ -155,14 +155,14 @@ section div {
 
 #all-books li {
         list-style-type: none;
-        width: 208px;
+        width: 218px;
         text-align: center;
         display: flex;
         flex-direction: column;
         gap:3px;
         border: 1px solid var(--black-color);
         border-radius: 10px;
-        padding: 4px;
+        padding: 10px;
 }
 
 #all-books li h3 {
@@ -209,5 +209,20 @@ section div {
 }
 
 .borrow-button {
-        
+background-color: var(--dark-color);
+color: var(--main-bg-color);
+padding: 5px 10px;
+border-radius: 5px;
+cursor: pointer;
+border: var(--dark-color);
+
+}
+
+.borrow-button:hover {
+-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+    animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+a {
+        color: var(--black-color)
 }

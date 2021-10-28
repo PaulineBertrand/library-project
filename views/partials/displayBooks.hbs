@@ -33,7 +33,7 @@
       {{/if}}
 
 {{#unless ../currentUser}}
-<form action="/all-books/{{_id}}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"> <i id="far" class="far fa-heart"></i><i id="fas" class="fas fa-heart"></i></button></form>
+<form action="/all-books/{{_id}}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"> <i id="far" class="far fa-heart fa-2x"></i><i id="fas" class="fas fa-heart fa-2x"></i></button></form>
         {{else}}
         {{#isInWishlist ../user }}
         {{/isInWishlist}}

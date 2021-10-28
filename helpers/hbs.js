@@ -8,10 +8,10 @@ const borrowingModel = require("./../models/borrowingModel");
 hbs.registerHelper("isInWishlist", function (user, options) {
   for (let i = 0; i < user.wishlist.length; i++) {
     if (user.wishlist[i]._id.toString() === this._id.toString())
-    return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" ><button type="submit" class="remove-wishlist"> <i id="far" class="far fa-heart"></i><i id="fas" class="fas fa-heart"></i></i>
+    return `<form action="/all-books/${this._id.toString()}/remove-wishlist" method="post" ><button type="submit" class="remove-wishlist"> <i id="far" class="far fa-heart fa-2x"></i><i id="fas" class="fas fa-heart fa-2x"></i></i>
     </button></form>`
   }
-  return `<form action="/all-books/${this._id.toString()}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"><i id="far" class="far fa-heart"></i><i id="fas" class="fas fa-heart"></i></button></form>`;
+  return `<form action="/all-books/${this._id.toString()}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"><i id="far" class="far fa-heart fa-2x"></i><i id="fas" class="fas fa-heart fa-2x"></i></button></form>`;
 });
 
 // checks if 2 parameters are equal. If yes, this function returns the 3rd parameter
