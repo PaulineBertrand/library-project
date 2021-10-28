@@ -11,6 +11,16 @@ const exposeToolBar = require("./../../middlewares/exposeToolBar");
 const fileUploader = require("./../../config/cloudinary.config");
 const findCoverImage = require("../../middlewares/bookCovers.js");
 
+// These functions are used to format the strings for title and author
+
+function capitalizeFirstLetter(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+}
+
+function capitalizeEachWord(sentence) {
+
+}
+
 // You can find below the routes for:
 // 1 - all the books in one user's personnal library (get only)
 // 2 - creating a book (get to render the form, post to create the book in the db)
@@ -36,7 +46,10 @@ router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
 router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), findCoverImage, (req, res, next) => {
 
     const newBook= { ...req.body };
-    console.log(res.locals.coverURL)
+
+    // This handles the new book image: if the user uploaded an image, we use it,
+    // otherwise we look on openlibrary for a cover, and if we can't find one, we
+    // use our default picture
     if (req.file) {
         newBook.image = req.file.path;
     } else if (res.locals.coverURL) {
@@ -44,8 +57,16 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
     } else {
         newBook.image = undefined
     }
+
+    // The book owner is the one creating the book
     newBook.owner = req.session.currentUser._id 
 
+    // We format the title and the author in case the user didnt use proper case conventions
+
+    newBook.title = req.body.title;
+    newBook.author = req.body.author;
+
+    // And we can know create the book!    
     bookModel.create(newBook)
     
     .then(() => {
