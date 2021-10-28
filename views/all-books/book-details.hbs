@@ -1,11 +1,27 @@
 <h2>Book details</h2>
 
+<nav id="nav-all-books">
+  <a href="/all-books"> All the books</a>
+  <a href="/all-books/available">All the available books</a>
+</nav>
+
+<section id="details-book">
+
+
+<img src="{{book.image}}" alt="photo-book">
+
+<div id ="details">
+
 
 <h3>{{book.title}} by {{book.author}}</h3>
-<img src="{{book.image}}" alt="photo-book" width= "200px">
-<div>
+
+<div class="details">
     <span>Genre: </span>{{book.genre}} <br>
     <span>Comment: </span> {{book.comment}} <br>
     <span>Owner: </span>{{book.owner.name}} {{book.owner.lastname}} <br>
     <span>Status: </span>{{book.status}} <br>
 </div>
+
+</div>
+
+</section>

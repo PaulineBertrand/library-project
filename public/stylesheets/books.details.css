@@ -3,3 +3,47 @@ h2 {
     padding: 50px 20px 50px 20px;
     
 }
+#nav-all-books {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    padding: 10px 10px 10px 30px;
+    position: fixed;
+    width: 40vh;
+    }
+
+    #nav-all-books a {
+        padding: 6px 10px;
+        text-decoration: none;
+        font-size: var(--font-size-xs);
+        color: var(--black-color)
+    }
+    
+    #nav-all-books a:hover {
+       font-weight: bolder;
+       text-decoration: underline;
+    }
+
+h3 {
+    font-size: 30px;
+    color: var(--dark-color);
+    margin-bottom: 20px;
+}
+#details-book {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+img {
+    height: 40vh;
+    width: auto;
+}
+
+span {
+    font-weight: bold;
+}
+
