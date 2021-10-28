@@ -6,6 +6,8 @@
   margin: 0px;
   box-sizing: border-box;
   font-family: 'EB Garamond', serif;
+  letter-spacing: 1px;
+  color: var(--black-color);
 }
 
 body{

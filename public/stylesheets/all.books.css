@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+    padding: 20px;
+    
+}
+
+
+#nav-all-books {
+display: flex;
+justify-content: center;
+/* align-items: center; */
+flex-direction: column;
+padding: 10px;
+}
+
+#nav-all-books input {
+    width: 300px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+#nav-all-books button {
+    border-radius: 5px;
+    padding: 4px;
+    cursor: pointer;
+
+}
