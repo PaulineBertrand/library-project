@@ -23,7 +23,8 @@
   {{#each books}}
     <li class="one-book {{#ifEquals status 'borrowed' 'grey-card'}}{{/ifEquals}}"> 
       <img src="{{image}}" alt="image-photo" width="200px" title= "comment from the author : {{comment}}">
-      <h3>{{title}}</h3>
+      <h3>{{title}}<br>by {{author}}</h3>
+  
       <a href="/all-books/{{_id}}/details" >See details</a>
 
       {{#if ../canStillBorrow}}
@@ -32,7 +33,7 @@
       {{/if}}
 
 {{#unless ../currentUser}}
-<form action="/all-books/{{_id}}/add-wishlist"  method="post" class="add-wishlist"><button type="submit"> <i class="far fa-heart"></i> </button></form>
+<form action="/all-books/{{_id}}/add-wishlist"  method="post" ><button type="submit" class="add-wishlist"> <i id="far" class="far fa-heart"></i><i id="fas" class="fas fa-heart"></i></button></form>
         {{else}}
         {{#isInWishlist ../user }}
         {{/isInWishlist}}

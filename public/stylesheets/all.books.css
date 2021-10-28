@@ -145,13 +145,69 @@ section div {
 #all-books {
         display: flex;
         flex-wrap: wrap;
-        gap: 90px;
+        gap: 60px;
         align-items: center;
         justify-content: center;
+        margin: auto 10px 40px 10px;
+        
 }
 
 
 #all-books li {
         list-style-type: none;
-        width: 15vh
+        width: 208px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap:3px;
+        border: 1px solid var(--black-color);
+        border-radius: 10px;
+        padding: 4px;
+}
+
+#all-books li h3 {
+        height: 75px;
+        padding: 3px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--dark-color)
+}
+
+#all-books li span {
+       font-style: italic;
+}
+
+
+.add-wishlist, .remove-wishlist {
+        border:none;
+        background-color: var(--main-bg-color);
+}
+
+.add-wishlist #fas {
+        display: none;
+}
+
+.add-wishlist:hover #fas {
+        display: inline-block;
+}
+
+.add-wishlist:hover #far {
+        display: none;
+}
+
+.remove-wishlist #far {
+        display: none;
+}
+
+.remove-wishlist:hover #far {
+        display: inline-block;
+}
+
+.remove-wishlist:hover #fas {
+        display: none;
+}
+
+.borrow-button {
+        
 }
