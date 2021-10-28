@@ -1,17 +1,4 @@
-#nav-main {
-    height: 101px;
-    display: flex;
-    align-items: center;
-    padding-left: 280px;
-    padding-right: 60px;
-    background-color: var(--dark-color);
-    justify-content: space-between;
-  }
-  
-  #nav-main > a {
-    color: var(--third-color);
-    text-decoration: none;
-  }
+
   
   #presentation-page {
     display: flex;

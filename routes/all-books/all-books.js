@@ -5,11 +5,39 @@ const userModel = require("./../../models/userModel")
 const borrowingModel = require ("./../../models/borrowingModel");
 const protectPrivateRoute = require("./../../middlewares/protectPrivateRoute")
 
+// get the "all-books" page
+router.get("/", (req, res, next) => {
+  const databaseRequests = [
+    bookModel.find({ owner: { $ne: req.session.currentUser?._id } }),
+    userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+    borrowingModel.find({borrower: req.session.currentUser?._id})
+  ]
+Promise.all(databaseRequests)
+    .then((responses) => {
+      const canStillBorrow = responses[2].length <= 5;
+      res.render("all-books/all-books.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, cssTitle: "all.books" })
+    })
+    .catch((error) => console.error(error));
+});
+
+// get the "all-books" page, but filter only on the available
+router.get("/available", (req, res, next) => {
+  const databaseRequests = [
+    bookModel.find({ $and: [ {status: "available"}, { owner : { $ne: req.session.currentUser?._id} }] }),
+    userModel.findById(req.session.currentUser?._id).populate("wishlist"),
+    borrowingModel.find({borrower: req.session.currentUser?._id})
+  ]
+  Promise.all(databaseRequests)
+  .then((responses) => {
+    const canStillBorrow = responses[2].length <= 5;
+    res.render("all-books/all-books-available.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, cssTitle: "all.books"})})
+    .catch((error) => console.error(error));
+})
 
 // route qui affiche les détails d'un livre en particulier
 router.get("/:id/details",protectPrivateRoute, (req, res, next) => {
     bookModel.findById(req.params.id).populate('owner')
-    .then((book) => res.render("all-books/book-details.hbs", { book}))
+    .then((book) => res.render("all-books/book-details.hbs", { book, cssTitle: "all.books"}))
     .catch((error) => console.error(error))
 })
 
@@ -55,7 +83,7 @@ router.get("/filter", function (req, res, next) {
     Promise.all(databaseRequests)
     .then((responses) => {
       const canStillBorrow = responses[2].length <= 5;
-      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search })
+      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search, cssTitle: "all.books" })
     })
     .catch((error) => console.error(error));
   });
@@ -70,7 +98,7 @@ router.get("/filter", function (req, res, next) {
     Promise.all(databaseRequests)
     .then((responses) => {
       const canStillBorrow = responses[2].length <= 5;
-      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search })
+      res.render("all-books/all-books-filter.hbs", { books: responses[0], user: responses[1], canStillBorrow, wishlist: true, filter: req.query.search, cssTitle: "all.books" })
     })
     .catch((error) => console.error(error));
     
