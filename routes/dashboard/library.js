@@ -18,7 +18,7 @@ function capitalizeFirstLetter(word) {
 }
 
 function capitalizeEachWord(sentence) {
-
+    return sentence.split(' ').map(word => capitalizeFirstLetter(word)).join(' ');
 }
 
 // You can find below the routes for:
@@ -63,8 +63,8 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
 
     // We format the title and the author in case the user didnt use proper case conventions
 
-    newBook.title = req.body.title;
-    newBook.author = req.body.author;
+    newBook.title = capitalizeEachWord(req.body.title);
+    newBook.author = capitalizeEachWord(req.body.author);
 
     // And we can know create the book!    
     bookModel.create(newBook)
