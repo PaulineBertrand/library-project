@@ -86,3 +86,20 @@ body{
 #logo{
   width: 20px;
 }
+
+.toolbar {
+  position: fixed;
+  padding: 20px;
+}
+
+.toolbar a {
+  text-decoration: none;
+  color: var(--dark-color);
+  font-size: var(--font-size-xs);
+  margin-bottom: 200px;
+}
+
+#nav-main img {
+  width: 100px;
+
+}
