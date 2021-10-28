@@ -97,6 +97,12 @@ body{
 
 #toolbar a {
   text-decoration: none;
-  color: var(--black-color);
   font-size: 25px;
+  color: var(--dark-color);
+  margin-bottom: 200px;
+}
+
+#nav-main img {
+  width: 100px;
+
 }

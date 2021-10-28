@@ -12,7 +12,7 @@ router.get("/", function (req, res, next) {
 
 // get the "how does it work" page
 router.get("/about", function (req, res, next) {
-  res.render("home/about", {cssTitle: 'about', wishlist: true});
+  res.render("home/about", {cssTitle: 'about', wishlist: true,  });
 });
 
 module.exports = router;
