@@ -4,11 +4,14 @@
 <h3><a href="/dashboard/my-library">My library : </a></h3>
 {{#unless stats.nbAllBooks}}
 <p>You don't have any books in your library.</p>
+
 {{/unless}}
 
 {{!-- {{stats.nbLendedBooks}} --}}
 {{#isEqual stats.nbAllBooks stats.nbLendedBooks}}
 {{/isEqual}}
+
+<a href="/dashboard/create-book">Add a book</a>
 </div>
 
 <div>
@@ -17,11 +20,12 @@
 
        {{#unless stats.nbBorrowedBooks}}
 <p>Currently, you don't borrow any books.</p>
+<a href="/all-books">Borrow a book</a>
 {{/unless}}
 
 {{#isEqualBorrowed stats.nbBorrowedBooks}}
 {{/isEqualBorrowed}}
-
+<a href="/all-books">Borrow another book</a>
 </div>
 
 <div>
@@ -33,4 +37,5 @@
 
 {{#isEqualWishlist stats.nbWishlistBooks}}
 {{/isEqualWishlist}}
+<a href="/all-books">Add a book to my wishlist</a>
 </div>
