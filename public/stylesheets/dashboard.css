@@ -31,6 +31,7 @@
   background-color: var(--third-color);
   border-radius: 15px;
   padding: 10px;
+  box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.4)  ; 
 }
 
 .titles-dashboard {
@@ -43,8 +44,11 @@
 }
 
 #dashboard-section .adding-buttons a {
-  background-color: rgb(175 145 74 / 24%);
-  padding: 5px;
+  background-color: rgb(39 70 83 / 50%);
+  padding: 8px;
+  border-radius: 12px;
+  color: rgb(217, 200, 159);
+  box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.4)  ; 
 }
 
 #dashboard-section .adding-buttons {
