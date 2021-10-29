@@ -1,3 +1,7 @@
+  {{#unless canStillBorrow}}
+<p class="book-limit-message">You are at your book limit. You cannot borrow more books at the moment.</p>
+{{/unless}}
+
 <section>
 
 <nav id="nav-all-books">
@@ -6,14 +10,13 @@
         <button type="submit">OK</button></form>
   <a href="/all-books"> All the books</a>
   <a href="/all-books/available">All the available books</a>
+
 </nav>
 
 
 
 <div>
-{{#unless canStillBorrow}}
-<p class="book-limit-message">You are at your book limit. You cannot borrow more books at the moment.</p>
-{{/unless}}
+
 
  {{#unless books}}
       No results for your research !
