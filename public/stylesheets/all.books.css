@@ -276,16 +276,15 @@ a {
       
 
       .one-book.grey-card {
-              background-color: grey;
-              opacity: 80%;
+              background-color: var(--third-color);
+              opacity: 60%;
               
       }
 
       .one-book.grey-card .add-wishlist, .one-book.grey-card .remove-wishlist{
-        background-color: grey;
+        background-color: var(--third-color);
         opacity: 60%;
         border:none;
-        background-color: grey;
       }
 
       .one-book.grey-card .borrow-button {
@@ -307,3 +306,4 @@ a {
         height: 255px;
         margin: 0px;
 }
+

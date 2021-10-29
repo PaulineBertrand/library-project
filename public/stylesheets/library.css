@@ -68,11 +68,42 @@ ul {
     text-decoration: none;
     color: var(--black-color);
     background-color: var(--third-color);
-    border-radius: 2px;
+    border-radius: 10px;
+    padding: 10px;
+
+    -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.add-book {
+    padding: 5px;
+    text-decoration: none;
+    color: var(--black-color);
+    background-color: var(--dark-color);
+    color: var(--main-bg-color);
+    border-radius: 10px;
+    padding: 10px;
+
+    -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.dashboard-link:hover, .add-book:hover{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
 }
 
 .dashboard-msg {
     text-align: center;
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* ----------------------------------------------
@@ -108,3 +139,26 @@ ul {
               box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
     }
   }
+
+  .table-icon {
+    color: var(--dark-color);
+}
+
+#image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 178px;
+    height: 290px;
+}
+
+h4 {
+    width: 178px;
+    height: 50px;
+}
+
+#fas, .remove-wishlist button {
+    background-color: var(--main-bg-color) ;
+    border:none;
+    cursor: pointer;
+}
