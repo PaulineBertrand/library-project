@@ -4,8 +4,7 @@
 
 <div class="dashboard-books-container">
 
-    <h1>My library</h1>
-    <h2>All of my lent books</h2>
+    <h1>All of my lent books</h1>
 
     {{#unless books}}
     <p>All of your books are home!</p>
@@ -22,9 +21,10 @@
                     <a href="/dashboard/{{_id}}/edit-book"><i class="fa fa-edit table-icon"></i></a>
                     <a href="/dashboard/{{_id}}/delete-book"><i class="fa fa-trash table-icon"></i></a>
                         <form action="/dashboard/{{_id}}/available" method="post">
-                    <button type="submit">I got this book back</button></form>
+                   
                 
                 </div>
+                 <button type="submit" class="back-book">I got this book back</button></form>
             </div>
         </li>
     {{/each}}
