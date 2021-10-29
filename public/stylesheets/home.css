@@ -1,49 +1,50 @@
+#presentation-page {
+  display: flex;
+  height: 350px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-bg-color);
+}
 
-  
-  #presentation-page {
-    display: flex;
-    height: 350px;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--main-bg-color);
-  }
-  
-  .focus-in-expand {
-      animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
-    font-size: var(--font-size-xl);
-  }
-  
-   @keyframes focus-in-expand {
-    0% {
-      letter-spacing: -0.5em;
-      filter: blur(12px);
-      opacity: 0;
-    }
-    100% {
-      filter: blur(0px);
-      opacity: 1;
-    }
-  }
-  
-  #banner{
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    width: 100vw;
-    bottom: 140px;
-  }
+.focus-in-expand {
+  animation: focus-in-expand 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+  font-size: var(--font-size-xl);
+  position: relative;
+  bottom: 60px;
+  color: var(--dark-color);
+}
 
-  #banner .images > img{ 
-    width: 200px;
-    height: 300px;
-    transition: transform ease-in-out 1s;
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    filter: blur(12px);
+    opacity: 0;
   }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
 
-  #banner .images > img:hover{ 
-    transform: scale(1.5);
-    transition: transform ease-in-out 1s;
-  }
+#banner {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100vw;
+  bottom: 140px;
+}
+
+#banner .images > img {
+  width: 200px;
+  height: 300px;
+  transition: transform ease-in-out 1s;
+}
+
+#banner .images > img:hover {
+  transform: scale(1.5);
+  transition: transform ease-in-out 1s;
+}
 
 body {
   height: 83vh;

@@ -1,6 +1,7 @@
 h1 {
     text-align: center;
     padding: 50px 20px 50px 20px;
+    color: var(--dark-color);
 }
 
 
@@ -14,15 +15,23 @@ position: fixed;
 width: 285px;
 margin-left: 10px;
 box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.4)  ; 
+
+}
+
+#nav-all-books a{
+        
+color: var(--dark-color);
 }
 
 #nav-all-books form {
     margin-bottom: 10px;
+    color: var(--dark-color);
 }
 #nav-all-books input {
     width: 200px;
     padding: 4px;
     border-radius: 5px;
+    color: var(--dark-color);
 }
 
 #nav-all-books button {
