@@ -11,7 +11,9 @@ display: flex;
 flex-direction: column;
 padding: 10px 10px 10px 30px;
 position: fixed;
-width: 40vh;
+width: 285px;
+margin-left: 10px;
+box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.4)  ; 
 }
 
 #nav-all-books form {
