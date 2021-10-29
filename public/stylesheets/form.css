@@ -1,53 +1,52 @@
 h2 {
-    text-align: center;
-    padding: 50px 20px 50px 20px;
-    border: solid var(--main-bg-color) 1px; 
-
+  text-align: center;
+  padding: 50px 20px 50px 20px;
+  border: solid var(--main-bg-color) 1px;
 }
 
 section {
-    box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7)  ; 
-    -webkit-box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7)  ; 
-    -moz-box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7)  ; 
-    font-size: 20px;
-    padding: 100px;
+  box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 5px 6px 36px rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+  padding: 50px;
+  margin: 40px;
 }
 
 #main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 input {
-    width: 100%;
+  width: 100%;
 }
 
 button {
-    width: 100px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 1px solid grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
+  width: 100px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 button:hover {
-    text-decoration: underline;
-    font-weight: bolder;
-    text-align: center;
+  text-decoration: underline;
+  font-weight: bolder;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 body {
-    height: 83vh;
-  }
+  height: 83vh;
+}
