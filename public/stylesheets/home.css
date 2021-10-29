@@ -35,13 +35,13 @@
   bottom: 140px;
 }
 
-#banner .images > img {
+#banner .images  img {
   width: 200px;
   height: 300px;
   transition: transform ease-in-out 1s;
 }
 
-#banner .images > img:hover {
+#banner .images  img:hover {
   transform: scale(1.5);
   transition: transform ease-in-out 1s;
 }
