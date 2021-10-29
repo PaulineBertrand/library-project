@@ -1,3 +1,7 @@
+h1{
+    color: var(--dark-color);
+}
+
 body {
     height: 150vh;
 }
