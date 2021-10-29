@@ -39,7 +39,7 @@ router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) =
 
 // 2 - Creating a book
 
-router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
+router.get('/create-book', protectPrivateRoute, exposeToolBar,  (req, res, next) => {
     res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id, cssTitle: 'form' })
 })
 
@@ -79,7 +79,7 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
 
 // 3 - Editing a book
 
-router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
+router.get('/:id/edit-book', protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.findById(req.params.id)
     .then((book) => {
         res.render('dashboard/edit-book.hbs', { book, allGenres, cssTitle: 'form' })
