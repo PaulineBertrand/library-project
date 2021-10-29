@@ -39,14 +39,13 @@ router.get('/my-library', protectPrivateRoute, exposeToolBar, (req, res, next) =
 
 // 2 - Creating a book
 
-router.get('/create-book', protectPrivateRoute,  (req, res, next) => {
-    res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id, cssTitle: 'form' })
+router.get('/create-book', protectPrivateRoute, exposeToolBar,  (req, res, next) => {
+    res.render('dashboard/create-book.hbs', { allGenres, id: req.session.currentUser._id, cssTitle: 'form', stats: res.locals.userNumbers })
 })
 
 router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), findCoverImage, (req, res, next) => {
 
-    const newBook= { ...req.body };
-
+    const newBook= { ...req.body }
     // This handles the new book image: if the user uploaded an image, we use it,
     // otherwise we look on openlibrary for a cover, and if we can't find one, we
     // use our default picture
@@ -79,10 +78,10 @@ router.post('/create-book', protectPrivateRoute, fileUploader.single('image'), f
 
 // 3 - Editing a book
 
-router.get('/:id/edit-book', protectPrivateRoute, (req, res, next) => {
+router.get('/:id/edit-book', protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.findById(req.params.id)
     .then((book) => {
-        res.render('dashboard/edit-book.hbs', { book, allGenres, cssTitle: 'form' })
+        res.render('dashboard/edit-book.hbs', { book, allGenres, stats: res.locals.userNumbers, cssTitle: 'form' })
     })
     .catch((err) => console.log('error while editing a book: ', err))
 });

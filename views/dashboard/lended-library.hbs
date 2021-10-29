@@ -17,10 +17,10 @@
             <img src="{{image}}" alt="book image" width="200px">
             <div class="one-book-info">
                 <h4>{{title}}</h4>
-                <p>{{author}}</p>
+                <h4>by {{author}}</h4>
                 <div class="one-book-buttons">
-                    <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
-                    <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+                    <a href="/dashboard/{{_id}}/edit-book"><i class="fa fa-edit table-icon"></i></a>
+                    <a href="/dashboard/{{_id}}/delete-book"><i class="fa fa-trash table-icon"></i></a>
                         <form action="/dashboard/{{_id}}/available" method="post">
                     <button type="submit">I got this book back</button></form>
                 

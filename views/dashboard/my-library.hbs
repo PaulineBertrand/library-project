@@ -10,12 +10,14 @@
     <div class="dashboard-msg">
 
         <a class="dashboard-link" href="/dashboard/lended-library">Show only lent books</a>
+        {{#unless books}}
                 <p>Your library is empty!</p>
+                 {{/unless}}
             <a href="/dashboard/create-book" class="add-book">Add a book</a>
              </div>
-        {{#unless books}}
+        
 
-        {{/unless}}
+       
 
    
 
@@ -28,7 +30,7 @@
             
             <div class="one-book-info">
                 <h4>{{title}}</h4>
-                <p>{{author}}</p>
+                <h4>by {{author}}</h4>
                 <div class="one-book-buttons">
                     <a href="/dashboard/{{_id}}/edit-book"><i class="fa fa-edit table-icon "></i></a>
                     <a href="/dashboard/{{_id}}/delete-book"><i class="fa fa-trash table-icon "></i></a>
