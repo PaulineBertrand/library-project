@@ -148,7 +148,7 @@ section div {
         gap: 60px;
         align-items: center;
         justify-content: center;
-        margin: auto 10px 40px 10px;
+        margin: auto 10px 100px 10px;
         
 }
 
@@ -163,6 +163,7 @@ section div {
         gap:3px;
         border: 1px solid var(--black-color);
         border-radius: 10px;
+        /* margin-bottom: 30px; */
         padding: 10px;
         -webkit-animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

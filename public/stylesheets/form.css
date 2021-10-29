@@ -47,3 +47,7 @@ form {
     justify-content: center;
     flex-direction: column;
 }
+
+body {
+    height: 83vh;
+  }

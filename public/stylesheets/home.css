@@ -10,7 +10,7 @@
   }
   
   .focus-in-expand {
-      animation: focus-in-expand 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+      animation: focus-in-expand 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.2s both;
     font-size: var(--font-size-xl);
   }
   
@@ -31,6 +31,7 @@
     justify-content: space-around;
     position: fixed;
     width: 100vw;
+    bottom: 140px;
   }
 
   #banner .images > img{ 
@@ -44,3 +45,6 @@
     transition: transform ease-in-out 1s;
   }
 
+body {
+  height: 83vh;
+}

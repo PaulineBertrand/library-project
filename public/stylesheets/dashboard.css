@@ -219,3 +219,7 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+body {
+  height: 83vh;
+}
