@@ -133,10 +133,8 @@ router.get("/lended-library", protectPrivateRoute, exposeToolBar, (req, res, nex
   // route qui change le statut d'un livre à "available"
 router.post("/:id/available",protectPrivateRoute, exposeToolBar, (req, res, next) => {
     bookModel.findByIdAndUpdate(req.params.id, {...req.body, status: "available"}, { new: true })
-    .then((book) => {
-        console.log('book id', book._id);
-        const mybookid= book._id.toString()
-        borrowingModel.findOneAndDelete({ book: mybookid});
+    .then(async() => {
+        await borrowingModel.findOneAndDelete({ book: req.params.id});
         res.redirect("/dashboard/lended-library")
     })
     .catch((error) => console.error(error))
