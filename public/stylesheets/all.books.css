@@ -180,7 +180,7 @@ section div {
 	        animation: shadow-drop-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 #all-books img {
-        max-width: 200px;
+        max-width: 197px;
         max-height: 250px;
 }
 #all-books li h3 {
