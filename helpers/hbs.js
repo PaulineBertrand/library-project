@@ -1,7 +1,7 @@
 const hbs = require("hbs");
-const bookModel = require("./../models/bookModel");
-const userModel = require("./../models/userModel");
-const borrowingModel = require("./../models/borrowingModel");
+const bookModel = require("../models/bookModel");
+const userModel = require("../models/userModel");
+const borrowingModel = require("../models/borrowingModel");
 
 
 // checks if a given book is in the wishlist of the user. If it is in the wishlist, only the "remove from wishlist" button appears. If it is not in the wishlist, only the "add to wishlist" appears.

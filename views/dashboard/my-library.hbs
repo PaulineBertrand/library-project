@@ -10,30 +10,35 @@
     <div class="dashboard-msg">
 
         <a class="dashboard-link" href="/dashboard/lended-library">Show only lent books</a>
-
+                <p>Your library is empty!</p>
+            <a href="/dashboard/create-book" class="add-book">Add a book</a>
+             </div>
         {{#unless books}}
-        <p>Your library is empty!</p>
+
         {{/unless}}
 
-    </div>
+   
 
     <ul>
     {{#each books}}
         <li class="one-book">
-            <img src="{{image}}" alt="book image">
+            <div id="image-container">
+<img src="{{image}}" alt="book image">
+            </div>
+            
             <div class="one-book-info">
                 <h4>{{title}}</h4>
                 <p>{{author}}</p>
                 <div class="one-book-buttons">
-                    <a href="/dashboard/{{_id}}/edit-book">Edit<i class="fa fa-edit table-icon"></i></a>
-                    <a href="/dashboard/{{_id}}/delete-book">Delete<i class="fa fa-trash table-icon"></i></a>
+                    <a href="/dashboard/{{_id}}/edit-book"><i class="fa fa-edit table-icon "></i></a>
+                    <a href="/dashboard/{{_id}}/delete-book"><i class="fa fa-trash table-icon "></i></a>
                 </div>
             </div>
         </li>
     {{/each}}
     </ul>
 
-    <a href="/dashboard/create-book">Add a book</a>
+
 
 </div>
 
